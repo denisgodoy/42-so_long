@@ -6,7 +6,7 @@ FLAGS := -Wall -Wextra -Werror
 
 SRC := main.c
 
-LIB := -L ./mlx -lmlx -lXext -lX11
+LIB := -L ./mlx -lmlx -lXext -lX11 
 
 all: $(NAME)
 
@@ -15,7 +15,7 @@ mlx:
 	$(MAKE) -C ./mlx
 
 $(NAME): clean
-	$(CC) -o $(NAME) $(SRC) $(LIB)
+	$(CC) $(FLAGS) -o $(NAME) $(SRC) $(LIB)
 
 clean:
 	rm -rf $(NAME)
