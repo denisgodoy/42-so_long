@@ -1,0 +1,9 @@
+[submodule "minilibx-linux"]
+	path = minilibx-linux
+	url = https://github.com/42Paris/minilibx-linux.git
+[submodule "42-gnl"]
+	path = 42-gnl
+	url = https://github.com/denisgodoy/42-gnl.git
+[submodule "42-libft"]
+	path = 42-libft
+	url = https://github.com/denisgodoy/42-libft.git
