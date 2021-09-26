@@ -6,21 +6,21 @@ FLAGS := -Wall -Wextra -Werror
 
 SRC := main.c
 
-LIB := -L ./mlx -lmlx -lXext -lX11 
+OBJ := $(SRC:%.c=%.o)
+
+LIB := -L ./minilibx -lmlx -lXext -lX11 
 
 all: $(NAME)
 
-mlx:
-	git clone https://github.com/42Paris/minilibx-linux.git mlx
-	$(MAKE) -C ./mlx
-
-$(NAME): clean
-	$(CC) $(FLAGS) -o $(NAME) $(SRC) $(LIB)
+$(NAME): clean $(OBJ)
+	$(MAKE) -C ./minilibx
+	$(CC) $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
 
 clean:
+	rm -rf $(OBJ)
 	rm -rf $(NAME)
 
 fclean: clean
-	rm -rf mlx
+	$(MAKE) -C minilibx clean
 
-re: fclean mlx all
+re: fclean all
