@@ -2,28 +2,28 @@ NAME := so_long
 
 CC := clang
 
-FLAGS := -Wall -Wextra -Werror
+FLAGS := -Wall -Wextra -Werror -fsanitize=address
 
 SRC := main.c
 
 OBJ := $(SRC:%.c=%.o)
 
-LIB := -L ./42-libft -lft -L ./minilibx-linux -lmlx -lXext -lX11 
+LIB := -L ./minilibx-linux -lmlx -lXext -lX11 #-L ./42-libft -lft
 
 all: $(NAME)
 
 $(NAME): clean $(OBJ)
 	$(MAKE) -C ./minilibx-linux
-	$(MAKE) -C ./42-libft
+#	$(MAKE) -C ./42-libft
 	$(CC) $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
 
 clean:
-	$(MAKE) -C ./42-libft clean
+#	$(MAKE) -C ./42-libft clean
 	rm -rf $(OBJ)
 	rm -rf $(NAME)
 
 fclean: clean
 	$(MAKE) -C ./minilibx-linux clean
-	$(MAKE) -C ./42-libft fclean
+#	$(MAKE) -C ./42-libft fclean
 
 re: fclean all
