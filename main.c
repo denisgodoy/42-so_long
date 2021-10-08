@@ -6,56 +6,66 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/09/28 01:02:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/08 17:01:01 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"so_long.h"
 
-void	ft_keypress(int key_press)
+typedef struct s_img
 {
-	static int	n;
+	void	*ptr;
+	int		x;
+	int		y;
+} t_img;
 
-	n += key_press;
-	printf("%d\n", n);
-}
-
-int	deal_key(void)
+typedef struct s_ptr
 {
-	ft_keypress(1);
-	return (0);
+	void 	*mlx_ptr;
+	void	*win_ptr;
+	t_img	character;
+	t_img	floor;
+} t_ptr;
+
+int	key_input(int key, t_ptr *ptr)
+{
+	int x;
+	int y;
+
+	x = 0;
+	y = 0;
+	if (key == 'a')
+		ptr->character.x -= 20;
+	else if (key == 'd')
+		ptr->character.x += 20;
+	else if (key == 'w')
+		ptr->character.y -= 20;
+	else if (key == 's')
+		ptr->character.y += 20;
+	else if (key == 'p')
+		exit(1);
+	mlx_clear_window(ptr->mlx_ptr, ptr->win_ptr);
+	while (x < 10)
+	{
+	 	mlx_put_image_to_window(ptr->mlx_ptr, ptr->win_ptr, ptr->floor.ptr, (50 * x), 0);
+	 	x++;
+	}
+	mlx_put_image_to_window(ptr->mlx_ptr, ptr->win_ptr, ptr->character.ptr, ptr->character.x,  ptr->character.y);
 }
 
 int	main(void)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		x;
-	int		temp_x;
-	int		y;
-	void	*img_ptr;
-	void	*img;
-	char	*filename;
-	int		w;
-	int		h;
+	t_ptr ptr;
+	int x;
+	int y;
 
-	filename = "./sprites/zombie.xpm";
-	x = 600;
-	temp_x = x;
-	y = 300;
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, x, y, "so_long");
-	while (x && y)
-	{
-		mlx_pixel_put(mlx_ptr, win_ptr, --x, y, 0x25A60);
-		if (!x)
-		{
-			x = temp_x;
-			--y;
-		}
-	}
-	img_ptr = mlx_xpm_file_to_image(mlx_ptr, filename, &w, &h);
-	mlx_put_image_to_window(mlx_ptr, win_ptr, img_ptr, 100, 100);
-	mlx_key_hook(win_ptr, deal_key, (void *)0);
-	mlx_loop(mlx_ptr);
+	ptr.character.x = 0;
+	ptr.character.y = 0;
+
+	ptr.mlx_ptr = mlx_init();
+	ptr.win_ptr = mlx_new_window(ptr.mlx_ptr, 500, 150, "so_long");
+	ptr.character.ptr = mlx_xpm_file_to_image(ptr.mlx_ptr, "sprites/zombie.xpm", &x, &y);
+	ptr.floor.ptr = mlx_xpm_file_to_image(ptr.mlx_ptr, "sprites/floor.xpm", &x, &y);
+	mlx_key_hook(ptr.win_ptr, key_input, &ptr);
+	mlx_loop(ptr.mlx_ptr);
 }
