@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/09/26 13:19:26 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/08 22:50:59 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,25 @@
 # include "42-libft/libft.h"
 # include <unistd.h>
 # include <stdio.h>
+
+# define UP 	119
+# define DOWN 	115
+# define LEFT 	97
+# define RIGHT 	100
+# define ESC	65307
+
+typedef struct s_img
+{
+	void	*ptr;
+	int		x;
+	int		y;
+}	t_img;
+
+typedef struct s_ptr
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_img	character;
+}	t_ptr;
+
 #endif
