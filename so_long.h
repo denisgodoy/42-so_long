@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/08 22:50:59 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/09 01:01:39 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ typedef struct s_img
 
 typedef struct s_ptr
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	t_img	character;
+	void	*mlx;
+	void	*win;
+	t_img	player;
 }	t_ptr;
 
 #endif
