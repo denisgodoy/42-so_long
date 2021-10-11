@@ -4,7 +4,7 @@
 [submodule "42-gnl"]
 	path = 42-gnl
 	url = https://github.com/denisgodoy/42-gnl.git
-	branch = main
+	branch = so_long
 [submodule "42-libft"]
 	path = 42-libft
 	url = https://github.com/denisgodoy/42-libft.git
