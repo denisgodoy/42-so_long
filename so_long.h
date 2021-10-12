@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/11 23:15:49 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/12 01:33:01 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_ptr
 	void	*mlx;
 	void	*win;
 	t_img	player;
+	t_img	player_left;
 	t_img	wall;
 	t_img	floor;
 	t_img	exit;
