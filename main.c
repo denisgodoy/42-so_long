@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/11 23:43:33 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/12 00:34:44 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ char	*ft_read_map(void)
 	int		fd;
 	int 	i;
 
-	temp_read =  ft_strdup("");
+	temp_read = ft_strdup("");
 	i = 0;
 	fd = open("./maps/map.ber", O_RDONLY);
-	while(i < 7)
+	while(1)
 	{
 		map_read = ft_strjoin(temp_read, get_next_line(fd));
 		temp_read = map_read;
-		i++;
+		if (map_read[ft_strlen(map_read) - 1] != '\n')
+			break ;
 	}
 	close(fd);
 	return (map_read);
@@ -48,7 +49,7 @@ void	ft_make_map(t_ptr *ptr)
 			if (map[i][j] == '1')
 	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall.ptr, (40 * j), (40 * i));
 	 		else if (map[i][j] == 'P')
-	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr, (40 * j), (40 * i));
+	 			mlx_pdut_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr, (40 * j), (40 * i));
 			else if (map[i][j] == 'C')
 	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->collect.ptr, (40 * j), (40 * i));
 			else if (map[i][j] == 'E')
@@ -70,17 +71,28 @@ int	ft_key_input(int key, t_ptr *ptr)
 	x = 0;
 	y = 0;
 	if (key == LEFT)
-		ptr->player.x -= 5;
+	{
+		ptr->player.x -= 40;
+		printf("%d\n", ++movement);
+	}
 	else if (key == RIGHT)
-		ptr->player.x += 5;
+	{
+		ptr->player.x += 40;
+		printf("%d\n", ++movement);
+	}
 	else if (key == UP)
-		ptr->player.y -= 5;
+	{
+		ptr->player.y -= 40;
+		printf("%d\n", ++movement);
+	}
 	else if (key == DOWN)
-		ptr->player.y += 5;
+	{
+		ptr->player.y += 40;
+		printf("%d\n", ++movement);
+	}
 	else if (key == ESC)
 		exit(1);
 	mlx_clear_window(ptr->mlx, ptr->win);
-	printf("%d\n", ++movement);
 	ft_make_map(ptr);
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr,
 		ptr->player.x, ptr->player.y);
@@ -106,7 +118,8 @@ int	main(void)
 	ptr.floor.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/water.xpm", &x, &y);
 	ptr.exit.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/exit1.xpm", &x, &y);
 	ptr.collect.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/key.xpm", &x, &y);
-	mlx_hook(ptr.win, 2, (1L << 0), ft_key_input, &ptr);
+	mlx_key_hook(ptr.win, ft_key_input, &ptr);
+	//mlx_hook(ptr.win, 2, (1L << 0), ft_key_input, &ptr);
 	ft_make_map(&ptr);
 	mlx_loop(ptr.mlx);
 	return (0);
