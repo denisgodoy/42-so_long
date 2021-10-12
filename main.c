@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/11 19:08:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/11 23:43:33 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_read_map(void)
 	temp_read =  ft_strdup("");
 	i = 0;
 	fd = open("./maps/map.ber", O_RDONLY);
-	while(i < 4)
+	while(i < 7)
 	{
 		map_read = ft_strjoin(temp_read, get_next_line(fd));
 		temp_read = map_read;
@@ -47,8 +47,14 @@ void	ft_make_map(t_ptr *ptr)
 		{
 			if (map[i][j] == '1')
 	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall.ptr, (40 * j), (40 * i));
-	 		else
-	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->floor.ptr, (40 * j), (40 * i));
+	 		else if (map[i][j] == 'P')
+	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr, (40 * j), (40 * i));
+			else if (map[i][j] == 'C')
+	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->collect.ptr, (40 * j), (40 * i));
+			else if (map[i][j] == 'E')
+	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->exit.ptr, (40 * j), (40 * i));
+			else
+				mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->floor.ptr, (40 * j), (40 * i));
 			j++;
 		}
 	 	i++;
@@ -94,10 +100,12 @@ int	main(void)
 	ptr.wall.x = 0;
 	ptr.wall.y = 0;
 	ptr.mlx = mlx_init();
-	ptr.win = mlx_new_window(ptr.mlx, 400, 160, "so_long");
+	ptr.win = mlx_new_window(ptr.mlx, 400, 280, "so_long");
 	ptr.player.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/right1.xpm", &x, &y);
 	ptr.wall.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/crate.xpm", &x, &y);
 	ptr.floor.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/water.xpm", &x, &y);
+	ptr.exit.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/exit1.xpm", &x, &y);
+	ptr.collect.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/key.xpm", &x, &y);
 	mlx_hook(ptr.win, 2, (1L << 0), ft_key_input, &ptr);
 	ft_make_map(&ptr);
 	mlx_loop(ptr.mlx);
