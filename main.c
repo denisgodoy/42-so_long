@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/12 00:34:44 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/12 00:49:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_make_map(t_ptr *ptr)
 			if (map[i][j] == '1')
 	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall.ptr, (40 * j), (40 * i));
 	 		else if (map[i][j] == 'P')
-	 			mlx_pdut_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr, (40 * j), (40 * i));
+	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr, (40 * j), (40 * i));
 			else if (map[i][j] == 'C')
 	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->collect.ptr, (40 * j), (40 * i));
 			else if (map[i][j] == 'E')
