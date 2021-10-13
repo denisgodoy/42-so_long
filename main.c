@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/13 00:26:57 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/13 17:19:44 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ char	*ft_read_map(void)
 	char	*map_read;
 	char	*temp_read;
 	int		fd;
-	int 	i;
 
 	temp_read = ft_strdup("");
-	i = 0;
 	fd = open("./maps/map2.ber", O_RDONLY);
 	//fd = open("./maps/map.ber", O_RDONLY);
 	while(1)
@@ -34,51 +32,54 @@ char	*ft_read_map(void)
 	return (map_read);
 }
 
+void ft_check_walls(t_ptr *ptr, int h, int w)
+{
+	if (h == 0 && w == 0)
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_up_r.ptr, (40 * w), (40 * h));
+	else if (h == 4 && w == 0)
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_btm_l.ptr, (40 * w), (40 * h));				
+	else if (h == 0 && w == 12)
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_up_l.ptr, (40 * w), (40 * h));
+	else if (h == 4 && w == 12)
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_btm_r.ptr, (40 * w), (40 * h));
+	else if (h == 0 && w > 0 && w < 12)
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_up.ptr, (40 * w), (40 * h));
+	else if (h > 0 && h < 4 && w == 0)
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_r.ptr, (40 * w), (40 * h));
+	else if (h > 0 && h < 4 && w == 12)
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_l.ptr, (40 * w), (40 * h));
+	else if (h == 4 && w > 0 && w < 12)
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_btm.ptr, (40 * w), (40 * h));
+	else
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_middle.ptr, (40 * w), (40 * h));
+}
+
 void	ft_make_map(t_ptr *ptr)
 {
 	char	**map;
-	int		i;
-	int		j;
+	int		h;
+	int		w;
 
-	i = 0;
+	h = 0;
 	map = ft_split(ft_read_map(), '\n');
-	while (map[i])
+	while (map[h])
 	{
-		j = 0;
-		while(map[i][j])
+		w = 0;
+		while(map[h][w])
 		{
-			if (map[i][j] == '1')
-			{
-				if (i == 0 && j == 0)
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_up_r.ptr, (40 * j), (40 * i));
-				else if (i == 4 && j == 0)
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_btm_l.ptr, (40 * j), (40 * i));				
-				else if (i == 0 && j == 12)
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_up_l.ptr, (40 * j), (40 * i));
-				else if (i == 4 && j == 12)
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_btm_r.ptr, (40 * j), (40 * i));
-				else if (i == 0 && j > 0 && j < 12)
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_up.ptr, (40 * j), (40 * i));
-				else if (i > 0 && i < 4 && j == 0)
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_r.ptr, (40 * j), (40 * i));
-				else if (j == 12 && i > 0 && i < 4)
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_l.ptr, (40 * j), (40 * i));
-				else if (i == 4 && j > 0 && j < 12)
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_btm.ptr, (40 * j), (40 * i));
-				else
-					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_middle.ptr, (40 * j), (40 * i));
-			}
-	 		else if (map[i][j] == 'P')
-	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr, (40 * j), (40 * i));
-			else if (map[i][j] == 'C')
-	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->collect.ptr, (40 * j), (40 * i));
-			else if (map[i][j] == 'E')
-	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->exit.ptr, (40 * j), (40 * i));
+			if (map[h][w] == '1')
+				ft_check_walls(ptr, h, w);
+	 		else if (map[h][w] == 'P')
+				mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr, (40 * w), (40 * h));
+			else if (map[h][w] == 'C')
+	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->collect.ptr, (40 * w), (40 * h));
+			else if (map[h][w] == 'E')
+	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->exit.ptr, (40 * w), (40 * h));
 			else
-				mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->floor.ptr, (40 * j), (40 * i));
-			j++;
+				mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->floor.ptr, (40 * w), (40 * h));
+			w++;
 		}
-	 	i++;
+	 	h++;
 	}
 }
 
@@ -91,25 +92,13 @@ int	ft_key_input(int key, t_ptr *ptr)
 	x = 0;
 	y = 0;
 	if (key == LEFT)
-	{
 		ptr->player.x -= 40;
-		printf("%d\n", ++movement);
-	}
 	else if (key == RIGHT)
-	{
 		ptr->player.x += 40;
-		printf("%d\n", ++movement);
-	}
 	else if (key == UP)
-	{
 		ptr->player.y -= 40;
-		printf("%d\n", ++movement);
-	}
 	else if (key == DOWN)
-	{
 		ptr->player.y += 40;
-		printf("%d\n", ++movement);
-	}
 	else if (key == ESC)
 		exit(1);
 	mlx_clear_window(ptr->mlx, ptr->win);
@@ -127,15 +116,10 @@ int	main(void)
 
 	ptr.player.x = 0;
 	ptr.player.y = 0;
-	ptr.floor.x = 0;
-	ptr.floor.y = 0;
-	ptr.wall.x = 0;
-	ptr.wall.y = 0;
 	ptr.mlx = mlx_init();
 	ptr.win = mlx_new_window(ptr.mlx, 520, 200, "so_long");
 	//ptr.win = mlx_new_window(ptr.mlx, 400, 280, "so_long");
 	ptr.player.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/right1.xpm", &x, &y);
-	ptr.player_left.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/left1.xpm", &x, &y);
 	ptr.wall_l.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_left.xpm", &x, &y);
 	ptr.wall_r.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_right.xpm", &x, &y);
 	ptr.wall_corner_btm_l.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_bottom_left.xpm", &x, &y);
