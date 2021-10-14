@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/13 23:57:05 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 00:24:21 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ void	ft_map_img(t_ptr *ptr);
 void	ft_player_img(t_ptr *ptr);
 int		ft_key_input(int key, t_ptr *ptr);
 void	ft_make_map(t_ptr *ptr);
-void	ft_check_walls(t_ptr *ptr, int h, int w);
+void	ft_map_walls(t_ptr *ptr, int h, int w);
+void	ft_check_lines(t_ptr *ptr, int h, int w);
+void	ft_check_corners(t_ptr *ptr, int h, int w);
 char	**ft_read_map(t_ptr *ptr);
 
 #endif
