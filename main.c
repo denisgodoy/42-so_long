@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 00:43:48 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 01:39:11 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(int argc, char **argv)
 	else
 	{
 		if (ft_check_ext(argv[1]))
-			printf("Error\nInvalid map extension\n");
+			printf("Error\nInvalid map extension!\n");
 		else
-			printf("Error\nInvalid number of arguments\n");
+			printf("Error\nInvalid number of arguments!\n");
 		exit(1);
 	}
 	ptr.mlx = mlx_init();
