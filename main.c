@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/13 17:19:44 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/13 22:17:16 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ char	*ft_read_map(void)
 
 	temp_read = ft_strdup("");
 	fd = open("./maps/map2.ber", O_RDONLY);
-	//fd = open("./maps/map.ber", O_RDONLY);
 	while(1)
 	{
 		map_read = ft_strjoin(temp_read, get_next_line(fd));
@@ -32,26 +31,26 @@ char	*ft_read_map(void)
 	return (map_read);
 }
 
-void ft_check_walls(t_ptr *ptr, int h, int w)
+void	ft_check_walls(t_ptr *ptr, int h, int w)
 {
 	if (h == 0 && w == 0)
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_up_r.ptr, (40 * w), (40 * h));
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_ur.ptr, (40 * w), (40 * h));
 	else if (h == 4 && w == 0)
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_btm_l.ptr, (40 * w), (40 * h));				
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_bl.ptr, (40 * w), (40 * h));				
 	else if (h == 0 && w == 12)
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_up_l.ptr, (40 * w), (40 * h));
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_ul.ptr, (40 * w), (40 * h));
 	else if (h == 4 && w == 12)
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_corner_btm_r.ptr, (40 * w), (40 * h));
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_br.ptr, (40 * w), (40 * h));
 	else if (h == 0 && w > 0 && w < 12)
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_up.ptr, (40 * w), (40 * h));
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_u.ptr, (40 * w), (40 * h));
 	else if (h > 0 && h < 4 && w == 0)
 		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_r.ptr, (40 * w), (40 * h));
 	else if (h > 0 && h < 4 && w == 12)
 		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_l.ptr, (40 * w), (40 * h));
 	else if (h == 4 && w > 0 && w < 12)
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_btm.ptr, (40 * w), (40 * h));
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_b.ptr, (40 * w), (40 * h));
 	else
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_middle.ptr, (40 * w), (40 * h));
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->wall_m.ptr, (40 * w), (40 * h));
 }
 
 void	ft_make_map(t_ptr *ptr)
@@ -59,7 +58,9 @@ void	ft_make_map(t_ptr *ptr)
 	char	**map;
 	int		h;
 	int		w;
+	int		collects;
 
+	collects = 0;
 	h = 0;
 	map = ft_split(ft_read_map(), '\n');
 	while (map[h])
@@ -72,9 +73,17 @@ void	ft_make_map(t_ptr *ptr)
 	 		else if (map[h][w] == 'P')
 				mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr, (40 * w), (40 * h));
 			else if (map[h][w] == 'C')
-	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->collect.ptr, (40 * w), (40 * h));
+			{
+				collects++;
+				mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->collect.ptr, (40 * w), (40 * h));
+			}
 			else if (map[h][w] == 'E')
-	 			mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->exit.ptr, (40 * w), (40 * h));
+			{
+				if (!collects)
+	 				mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->exit_o.ptr, (40 * w), (40 * h));
+				else
+					mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->exit_c.ptr, (40 * w), (40 * h));
+			}
 			else
 				mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->floor.ptr, (40 * w), (40 * h));
 			w++;
@@ -108,30 +117,49 @@ int	ft_key_input(int key, t_ptr *ptr)
 	return (0);
 }
 
-int	main(void)
+void	ft_player_img(t_ptr *ptr)
 {
-	t_ptr	ptr;
 	int		y;
 	int		x;
 
-	ptr.player.x = 0;
-	ptr.player.y = 0;
+	ptr->player.x = 0;
+	ptr->player.y = 0;
+	ptr->player.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/right1.xpm", &x, &y);
+}
+
+void	ft_map_img(t_ptr *ptr)
+{
+	int		y;
+	int		x;
+
+	ptr->wall_l.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wl.xpm", &x, &y);
+	ptr->wall_r.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wr.xpm", &x, &y);
+	ptr->wall_bl.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wbl.xpm", &x, &y);
+	ptr->wall_ul.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wtl.xpm", &x, &y);
+	ptr->wall_br.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wbr.xpm", &x, &y);
+	ptr->wall_ur.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wtr.xpm", &x, &y);
+	ptr->wall_u.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wb.xpm", &x, &y);
+	ptr->wall_b.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wu.xpm", &x, &y);
+	ptr->wall_m.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/wm.xpm", &x, &y);
+	ptr->floor.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/water.xpm", &x, &y);
+	ptr->exit_c.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/exit1.xpm", &x, &y);
+	ptr->exit_o.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/exit2.xpm", &x, &y);
+	ptr->collect.ptr = mlx_xpm_file_to_image(ptr->mlx, "img/key.xpm", &x, &y);
+}
+
+void	ft_img_init(t_ptr *ptr)
+{
+	ft_player_img(ptr);
+	ft_map_img(ptr);
+}
+
+int	main(void)
+{
+	t_ptr	ptr;
+
 	ptr.mlx = mlx_init();
 	ptr.win = mlx_new_window(ptr.mlx, 520, 200, "so_long");
-	//ptr.win = mlx_new_window(ptr.mlx, 400, 280, "so_long");
-	ptr.player.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/right1.xpm", &x, &y);
-	ptr.wall_l.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_left.xpm", &x, &y);
-	ptr.wall_r.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_right.xpm", &x, &y);
-	ptr.wall_corner_btm_l.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_bottom_left.xpm", &x, &y);
-	ptr.wall_corner_up_l.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_top_left.xpm", &x, &y);
-	ptr.wall_corner_btm_r.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wbr.xpm", &x, &y);
-	ptr.wall_corner_up_r.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_top_right.xpm", &x, &y);
-	ptr.wall_up.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_down.xpm", &x, &y);
-	ptr.wall_btm.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_up.xpm", &x, &y);
-	ptr.wall_middle.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/wall_middle.xpm", &x, &y);
-	ptr.floor.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/water.xpm", &x, &y);
-	ptr.exit.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/exit1.xpm", &x, &y);
-	ptr.collect.ptr = mlx_xpm_file_to_image(ptr.mlx, "sprites/key.xpm", &x, &y);
+	ft_img_init(&ptr);
 	mlx_key_hook(ptr.win, ft_key_input, &ptr);
 	//mlx_hook(ptr.win, 2, (1L << 0), ft_key_input, &ptr);
 	ft_make_map(&ptr);

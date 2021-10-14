@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/13 17:09:10 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/13 22:09:17 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,16 @@ typedef struct s_ptr
 	t_img	wall;
 	t_img	wall_l;
 	t_img	wall_r;
-	t_img	wall_up;
-	t_img	wall_btm;
-	t_img	wall_corner_up_l;
-	t_img	wall_corner_up_r;
-	t_img	wall_corner_btm_l;
-	t_img	wall_corner_btm_r;
-	t_img	wall_middle;
+	t_img	wall_u;
+	t_img	wall_b;
+	t_img	wall_ul;
+	t_img	wall_ur;
+	t_img	wall_bl;
+	t_img	wall_br;
+	t_img	wall_m;
 	t_img	floor;
-	t_img	exit;
+	t_img	exit_c;
+	t_img	exit_o;
 	t_img	collect;
 }	t_ptr;
 
