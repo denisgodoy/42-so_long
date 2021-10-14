@@ -6,20 +6,44 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/13 22:17:16 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/13 23:56:49 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"so_long.h"
 
-char	*ft_read_map(void)
+int	main(int argc, char **argv)
+{
+	t_ptr	ptr;
+	char	*map;
+
+	if (argc == 2 && !ft_check_ext(argv[1]))
+		ptr.map = argv[1];
+	else
+	{
+		if (ft_check_ext(argv[1]))
+			printf("Error\nInvalid map extension\n");
+		else
+			printf("Error\nInvalid number of arguments\n");
+		exit(1);
+	}
+	ptr.mlx = mlx_init();
+	ptr.win = mlx_new_window(ptr.mlx, 520, 200, "so_long");
+	ft_img_init(&ptr);
+	mlx_key_hook(ptr.win, ft_key_input, &ptr);
+	ft_make_map(&ptr);
+	mlx_loop(ptr.mlx);
+	return (0);
+}
+
+char	**ft_read_map(t_ptr *ptr)
 {
 	char	*map_read;
 	char	*temp_read;
 	int		fd;
 
 	temp_read = ft_strdup("");
-	fd = open("./maps/map2.ber", O_RDONLY);
+	fd = open(ptr->map, O_RDONLY);
 	while(1)
 	{
 		map_read = ft_strjoin(temp_read, get_next_line(fd));
@@ -28,7 +52,7 @@ char	*ft_read_map(void)
 			break ;
 	}
 	close(fd);
-	return (map_read);
+	return (ft_split(map_read, '\n'));
 }
 
 void	ft_check_walls(t_ptr *ptr, int h, int w)
@@ -62,7 +86,7 @@ void	ft_make_map(t_ptr *ptr)
 
 	collects = 0;
 	h = 0;
-	map = ft_split(ft_read_map(), '\n');
+	map = ft_read_map(ptr);
 	while (map[h])
 	{
 		w = 0;
@@ -153,16 +177,12 @@ void	ft_img_init(t_ptr *ptr)
 	ft_map_img(ptr);
 }
 
-int	main(void)
+int	ft_check_ext(char *file)
 {
-	t_ptr	ptr;
+	char	*ext;
 
-	ptr.mlx = mlx_init();
-	ptr.win = mlx_new_window(ptr.mlx, 520, 200, "so_long");
-	ft_img_init(&ptr);
-	mlx_key_hook(ptr.win, ft_key_input, &ptr);
-	//mlx_hook(ptr.win, 2, (1L << 0), ft_key_input, &ptr);
-	ft_make_map(&ptr);
-	mlx_loop(ptr.mlx);
-	return (0);
+	ext = ft_strchr(file, '.') + 1;
+	if (ft_strlen(ext) != 3)
+		return (1);
+	return (ft_strncmp(ext, "ber", 3));
 }

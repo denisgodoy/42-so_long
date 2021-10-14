@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/13 22:09:17 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/13 23:57:05 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_ptr
 {
 	void	*mlx;
 	void	*win;
+	char	*map;
 	t_img	player;
 	t_img	wall;
 	t_img	wall_l;
@@ -51,5 +52,14 @@ typedef struct s_ptr
 	t_img	exit_o;
 	t_img	collect;
 }	t_ptr;
+
+int		ft_check_ext(char *file);
+void	ft_img_init(t_ptr *ptr);
+void	ft_map_img(t_ptr *ptr);
+void	ft_player_img(t_ptr *ptr);
+int		ft_key_input(int key, t_ptr *ptr);
+void	ft_make_map(t_ptr *ptr);
+void	ft_check_walls(t_ptr *ptr, int h, int w);
+char	**ft_read_map(t_ptr *ptr);
 
 #endif
