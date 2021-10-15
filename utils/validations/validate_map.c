@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 23:11:22 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:54:41 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_valid_map(t_game *game, char *map_read)
 
 static void	ft_map_char(t_game *game, char *map_read)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	game->counter.c = 0;
@@ -75,6 +75,6 @@ static void	ft_map_format(t_game *game, char *map)
 			j++;
 		i++;
 	}
-	game->map_utils.width = (i / (j + 1) - 1);
+	game->map_utils.width = ((i / (j + 1)) - 1);
 	game->map_utils.height = j;
 }

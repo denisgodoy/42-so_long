@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:39:02 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 23:16:04 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:59:34 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char	**ft_read_map(t_game *game)
 
 void	ft_make_map(t_game *game)
 {
-	int		h;
-	int		w;
+	int	h;
+	int	w;
 
 	h = 0;
 	while (game->map_utils.map[h])
@@ -50,18 +50,18 @@ void	ft_make_map(t_game *game)
 			if (game->map_utils.map[h][w] == '1')
 				ft_map_walls(game, h, w);
 			else if (game->map_utils.map[h][w] == 'P')
-				mlx_put_image_to_window(game->mlx, game->win, game->player.ptr, (40 * w), (40 * h));
+				mlx_put_image_to_window(game->mlx, game->win, game->player.ptr, (IMG_SIZE * w), (IMG_SIZE * h));
 			else if (game->map_utils.map[h][w] == 'C')
-				mlx_put_image_to_window(game->mlx, game->win, game->collect.ptr, (40 * w), (40 * h));
+				mlx_put_image_to_window(game->mlx, game->win, game->collect.ptr, (IMG_SIZE * w), (IMG_SIZE * h));
 			else if (game->map_utils.map[h][w] == 'E')
 			{
 				if (!game->counter.c)
-					mlx_put_image_to_window(game->mlx, game->win, game->exit_o.ptr, (40 * w), (40 * h));
+					mlx_put_image_to_window(game->mlx, game->win, game->exit_o.ptr, (IMG_SIZE * w), (IMG_SIZE * h));
 				else
-					mlx_put_image_to_window(game->mlx, game->win, game->exit_c.ptr, (40 * w), (40 * h));
+					mlx_put_image_to_window(game->mlx, game->win, game->exit_c.ptr, (IMG_SIZE * w), (IMG_SIZE * h));
 			}
 			else
-				mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr, (40 * w), (40 * h));
+				mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr, (IMG_SIZE * w), (IMG_SIZE * h));
 			w++;
 		}
 		h++;

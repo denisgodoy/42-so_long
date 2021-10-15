@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:41:33 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 23:13:33 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:56:21 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_img_init(t_game *game)
 
 static void	ft_player_img(t_game *game)
 {
-	int		y;
-	int		x;
+	int	y;
+	int	x;
 
 	game->player.x = 0;
 	game->player.y = 0;
@@ -33,8 +33,8 @@ static void	ft_player_img(t_game *game)
 
 static void	ft_map_img(t_game *game)
 {
-	int		y;
-	int		x;
+	int	y;
+	int	x;
 
 	game->wall_l.ptr = mlx_xpm_file_to_image(game->mlx, "img/wl.xpm", &x, &y);
 	game->wall_r.ptr = mlx_xpm_file_to_image(game->mlx, "img/wr.xpm", &x, &y);

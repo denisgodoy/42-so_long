@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 23:10:45 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/15 00:06:45 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define UP 	119
-# define DOWN 	115
-# define LEFT 	97
-# define RIGHT 	100
-# define ESC	65307
+# define UP 		119
+# define DOWN 		115
+# define LEFT 		97
+# define RIGHT 		100
+# define ESC		65307
+# define IMG_SIZE	40
 
 typedef struct s_img
 {
