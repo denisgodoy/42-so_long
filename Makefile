@@ -5,8 +5,8 @@ CC := clang
 CFLAGS := -Wall -Wextra -Werror
 
 SRC := main.c $(addprefix 42-gnl/, get_next_line.c get_next_line_utils.c) \
-$(addprefix utils/map/, walls.c parse.c) $(addprefix utils/validation/, file_extension.c \
-map_format.c) $(addprefix utils/sprites/, init_sprites.c) $(addprefix utils/movements/, key_input.c)
+$(addprefix utils/map/, walls.c parse.c) $(addprefix utils/validations/, validate_file.c \
+validate_map.c) $(addprefix utils/sprites/, init_sprites.c) $(addprefix utils/movements/, key_input.c)
 
 OBJ := $(SRC:%.c=%.o)
 

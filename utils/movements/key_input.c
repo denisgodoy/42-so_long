@@ -6,27 +6,27 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 19:48:28 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:14:38 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../so_long.h"
 
-int	ft_key_input(int key, t_ptr *ptr)
+int	ft_key_input(int key, t_game *game)
 {
 	if (key == LEFT)
-		ptr->player.x -= 40;
+		game->player.x -= 40;
 	else if (key == RIGHT)
-		ptr->player.x += 40;
+		game->player.x += 40;
 	else if (key == UP)
-		ptr->player.y -= 40;
+		game->player.y -= 40;
 	else if (key == DOWN)
-		ptr->player.y += 40;
+		game->player.y += 40;
 	else if (key == ESC)
 		exit(1);
-	mlx_clear_window(ptr->mlx, ptr->win);
-	ft_make_map(ptr);
-	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player.ptr,
-		ptr->player.x, ptr->player.y);
+	mlx_clear_window(game->mlx, game->win);
+	ft_make_map(game);
+	mlx_put_image_to_window(game->mlx, game->win, game->player.ptr,
+		game->player.x, game->player.y);
 	return (0);
 }

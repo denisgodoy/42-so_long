@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 21:07:03 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:10:45 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,19 @@ typedef struct s_map
 	char	**map;
 }	t_map;
 
-typedef struct s_ptr
+typedef struct s_count
+{
+	int	p;
+	int	c;
+	int	e;
+}	t_count;
+
+typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
 	char	*filename;
+	t_count	counter;
 	t_map	map_utils;
 	t_img	player;
 	t_img	wall_l;
@@ -58,20 +66,14 @@ typedef struct s_ptr
 	t_img	exit_c;
 	t_img	exit_o;
 	t_img	collect;
-}	t_ptr;
+}	t_game;
 
-int		ft_check_ext(char *file);
-void	ft_img_init(t_ptr *ptr);
-void	ft_map_img(t_ptr *ptr);
-void	ft_player_img(t_ptr *ptr);
-int		ft_key_input(int key, t_ptr *ptr);
-void	ft_make_map(t_ptr *ptr);
-void	ft_map_walls(t_ptr *ptr, int h, int w);
-void	ft_check_lines(t_ptr *ptr, int h, int w);
-void	ft_check_corners(t_ptr *ptr, int h, int w);
-char	**ft_read_map(t_ptr *ptr);
-void	ft_map_char(char *map_read);
-void	ft_map_format(t_ptr *ptr, char *map);
-void	ft_valid_map(t_ptr *ptr, char *map_read);
+void	ft_check_args(int argc, char **argv, t_game *game);
+void	ft_img_init(t_game *game);
+int		ft_key_input(int key, t_game *game);
+void	ft_make_map(t_game *game);
+void	ft_map_walls(t_game *game, int h, int w);
+char	**ft_read_map(t_game *game);
+void	ft_valid_map(t_game *game, char *map_read);
 
 #endif

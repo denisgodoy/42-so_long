@@ -1,62 +1,68 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_format.c                                       :+:      :+:    :+:   */
+/*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 21:06:27 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 23:11:22 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../so_long.h"
 
-void	ft_valid_map(t_ptr *ptr, char *map_read)
+static void	ft_map_char(t_game *game, char *map_read);
+static void	ft_char_count(t_game *game);
+static void	ft_map_format(t_game *game, char *map);
+
+void	ft_valid_map(t_game *game, char *map_read)
 {
-	ft_map_char(map_read);
-	ft_map_format(ptr, map_read);
-	if (ptr->map_utils.height == ptr->map_utils.width)
+	ft_map_char(game, map_read);
+	ft_map_format(game, map_read);
+	if (game->map_utils.height == game->map_utils.width)
 	{
 		printf("Error\nMap is not rectangular\n");
 		exit(1);
 	}
 }
 
-void	ft_map_char(char *map_read)
+static void	ft_map_char(t_game *game, char *map_read)
 {
-	int	i;
-	int	p;
-	int	c;
-	int	e;
+	int		i;
 
 	i = 0;
-	p = 0;
-	c = 0;
-	e = 0;
+	game->counter.c = 0;
+	game->counter.e = 0;
+	game->counter.p = 0;
 	while (map_read[i])
 	{
 		if (map_read[i] == 'C')
-			c++;
+			game->counter.c++;
 		else if (map_read[i] == 'P')
-			p++;
+			game->counter.p++;
 		else if (map_read[i] == 'E')
-			e++;
-	 	else if (!ft_strchr("10CPE\n", map_read[i]))
+			game->counter.e++;
+		else if (!ft_strchr("10CPE\n", map_read[i]))
 		{
 			printf("Error\nInvalid map\n");
 			exit(1);
 		}
-	 	i++;
+		i++;
 	}
-	if (!(c > 0 && p == 1 && e == 1))
+	ft_char_count(game);
+}
+
+static void	ft_char_count(t_game *game)
+{
+	if (!(game->counter.c > 0 && game->counter.p == 1 && game->counter.e == 1))
 	{
 		printf("Error\nInvalid map\n");
 		exit(1);
 	}
 }
 
-void	ft_map_format(t_ptr *ptr, char *map)
+static void	ft_map_format(t_game *game, char *map)
 {
 	int	i;
 	int	j;
@@ -69,6 +75,6 @@ void	ft_map_format(t_ptr *ptr, char *map)
 			j++;
 		i++;
 	}
-	ptr->map_utils.width = (i / (j + 1) - 1);
-	ptr->map_utils.height = j;
+	game->map_utils.width = (i / (j + 1) - 1);
+	game->map_utils.height = j;
 }
