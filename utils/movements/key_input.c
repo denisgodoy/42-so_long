@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 00:44:57 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/14 19:48:28 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 int	ft_key_input(int key, t_ptr *ptr)
 {
-	int			x;
-	int			y;
-	static int	movement;
-
-	x = 0;
-	y = 0;
 	if (key == LEFT)
 		ptr->player.x -= 40;
 	else if (key == RIGHT)
