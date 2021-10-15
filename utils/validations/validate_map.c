@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 23:54:41 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/15 11:26:29 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 static void	ft_map_char(t_game *game, char *map_read);
 static void	ft_char_count(t_game *game);
-static void	ft_map_format(t_game *game, char *map);
+static void	ft_map_size(t_game *game, char *map);
 
 void	ft_valid_map(t_game *game, char *map_read)
 {
 	ft_map_char(game, map_read);
-	ft_map_format(game, map_read);
+	ft_map_size(game, map_read);
 	if (game->map_utils.height == game->map_utils.width)
 	{
 		printf("Error\nMap is not rectangular\n");
@@ -62,7 +62,7 @@ static void	ft_char_count(t_game *game)
 	}
 }
 
-static void	ft_map_format(t_game *game, char *map)
+static void	ft_map_size(t_game *game, char *map)
 {
 	int	i;
 	int	j;

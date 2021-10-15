@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:34:10 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 23:30:38 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/15 11:27:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_check_corners(t_game *game, int h, int w);
 static void	ft_check_lines(t_game *game, int h, int w);
 
-void	ft_map_walls(t_game *game, int h, int w)
+void	ft_put_walls(t_game *game, int h, int w)
 {
 	ft_check_lines(game, h, w);
 	ft_check_corners(game, h, w);

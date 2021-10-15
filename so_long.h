@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/15 00:06:45 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/15 11:27:10 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,9 @@ void	ft_check_args(int argc, char **argv, t_game *game);
 void	ft_img_init(t_game *game);
 int		ft_key_input(int key, t_game *game);
 void	ft_make_map(t_game *game);
-void	ft_map_walls(t_game *game, int h, int w);
+void	ft_put_walls(t_game *game, int h, int w);
 char	**ft_read_map(t_game *game);
+char	**ft_split_free(char *s, char c);
 void	ft_valid_map(t_game *game, char *map_read);
 
 #endif
