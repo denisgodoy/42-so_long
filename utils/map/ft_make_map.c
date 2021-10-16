@@ -1,40 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   asd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 00:39:02 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/15 11:26:49 by degabrie         ###   ########.fr       */
+/*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
+/*   Updated: 2021/10/15 22:36:06 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../so_long.h"
-
-char	**ft_read_map(t_game *game)
-{
-	char	*map_read;
-	int		fd;
-
-	map_read = ft_strdup("");
-	fd = open(game->filename, O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error\nMap does not exist\n");
-		close(fd);
-		exit(1);
-	}
-	while (1)
-	{
-		map_read = ft_strjoin_free(map_read, get_next_line(fd));
-		if (map_read[ft_strlen(map_read) - 1] != '\n')
-			break ;
-	}
-	close(fd);
-	ft_valid_map(game, map_read);
-	return (ft_split(map_read, '\n'));
-}
 
 void	ft_make_map(t_game *game)
 {
