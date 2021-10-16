@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:39:02 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/15 22:35:45 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/16 03:29:58 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ char	*ft_read_map(t_game *game)
 	map_str = ft_strdup("");
 	fd = open(game->filename, O_RDONLY);
 	if (fd < 0)
-	{
-		printf("Error\nMap does not exist\n");
-		exit(1);
-	}
+		ft_error_handler("Map does not exist");
 	while (1)
 	{
 		temp_map = get_next_line(fd);
