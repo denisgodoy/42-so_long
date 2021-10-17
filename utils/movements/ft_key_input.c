@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_input.c                                        :+:      :+:    :+:   */
+/*   ft_key_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/14 23:30:21 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/16 23:06:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 int	ft_key_input(int key, t_game *game)
 {
+	int	x;
+	int	y;
+
+	x = game->player.x;
+	y = game->player.y;
 	if (key == LEFT)
 		game->player.x -= IMG_SIZE;
 	else if (key == RIGHT)
@@ -26,7 +31,7 @@ int	ft_key_input(int key, t_game *game)
 		exit(1);
 	mlx_clear_window(game->mlx, game->win);
 	ft_make_map(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->player.ptr,
+	mlx_put_image_to_window(game->mlx, game->win, game->player.p.ptr,
 		game->player.x, game->player.y);
 	return (0);
 }

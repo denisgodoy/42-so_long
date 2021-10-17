@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/16 03:27:51 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/16 21:49:06 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ typedef struct s_count
 	int	e;
 }	t_count;
 
+typedef struct s_player
+{
+	t_img 	p;
+	int		x;
+	int		y;
+}	t_player;
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -53,7 +60,7 @@ typedef struct s_game
 	char	*filename;
 	t_count	counter;
 	t_map	map_utils;
-	t_img	player;
+	t_player	player;
 	t_img	wall_l;
 	t_img	wall_r;
 	t_img	wall_u;
