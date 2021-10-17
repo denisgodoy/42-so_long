@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/17 03:46:29 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/17 04:16:32 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,32 +48,32 @@ typedef struct s_count
 
 typedef struct s_player
 {
-	t_img 	p;
+	t_img	p;
 	int		x;
 	int		y;
 }	t_player;
 
 typedef struct s_game
 {
-	void	*mlx;
-	void	*win;
-	char	*filename;
-	t_count	counter;
-	t_map	map_utils;
+	void		*mlx;
+	void		*win;
+	char		*filename;
+	t_count		counter;
+	t_map		map_utils;
 	t_player	player;
-	t_img	wall_l;
-	t_img	wall_r;
-	t_img	wall_u;
-	t_img	wall_b;
-	t_img	wall_ul;
-	t_img	wall_ur;
-	t_img	wall_bl;
-	t_img	wall_br;
-	t_img	wall_m;
-	t_img	floor;
-	t_img	exit_c;
-	t_img	exit_o;
-	t_img	collect;
+	t_img		wall_l;
+	t_img		wall_r;
+	t_img		wall_u;
+	t_img		wall_b;
+	t_img		wall_ul;
+	t_img		wall_ur;
+	t_img		wall_bl;
+	t_img		wall_br;
+	t_img		wall_m;
+	t_img		floor;
+	t_img		exit_c;
+	t_img		exit_o;
+	t_img		collect;
 }	t_game;
 
 void	ft_check_args(int argc, char **argv, t_game *game);
