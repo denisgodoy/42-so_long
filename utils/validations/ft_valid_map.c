@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/17 03:04:52 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/17 03:46:37 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	ft_map_char(t_game *game);
 static void	ft_map_size(t_game *game);
-static void	ft_max_resolution(t_game *game);
 
 void	ft_valid_map(t_game *game)
 {
@@ -74,19 +73,3 @@ static void	ft_map_size(t_game *game)
 	ft_max_resolution(game);
 }
 
-static void	ft_max_resolution(t_game *game)
-{
-	int	sizey;
-	int	sizex;
-
-	sizey = 0;
-	sizex = 0;
-	mlx_get_screen_size(game->mlx, &sizex, &sizey);
-	printf("%d\n", game->map_utils.height * IMG_SIZE);
-	printf("%f\n", sizey / 1.2);
-	printf("%d\n", game->map_utils.width * IMG_SIZE);
-	printf("%f\n", sizex / 1.1);
-	if ((game->map_utils.height * IMG_SIZE) > (sizey / 1.2)
-			|| (game->map_utils.width * IMG_SIZE) > (sizex / 1.1))
-		ft_error_handler("Map is bigger than screen resolution");
-}
