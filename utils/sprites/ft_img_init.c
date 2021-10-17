@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:41:33 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/16 22:07:10 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/17 01:34:36 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_player_img(t_game *game)
 	int	y;
 	int	x;
 
-	game->player.p.ptr = mlx_xpm_file_to_image(game->mlx, "img/right1.xpm", &x, &y);
+	game->player.p.ptr = mlx_xpm_file_to_image(game->mlx, "img/r1.xpm", &x, &y);
 }
 
 static void	ft_map_img(t_game *game)
@@ -44,7 +44,7 @@ static void	ft_map_img(t_game *game)
 	game->wall_b.ptr = mlx_xpm_file_to_image(game->mlx, "img/wu.xpm", &x, &y);
 	game->wall_m.ptr = mlx_xpm_file_to_image(game->mlx, "img/wm.xpm", &x, &y);
 	game->floor.ptr = mlx_xpm_file_to_image(game->mlx, "img/water.xpm", &x, &y);
-	game->exit_c.ptr = mlx_xpm_file_to_image(game->mlx, "img/exit1.xpm", &x, &y);
-	game->exit_o.ptr = mlx_xpm_file_to_image(game->mlx, "img/exit2.xpm", &x, &y);
+	game->exit_c.ptr = mlx_xpm_file_to_image(game->mlx, "img/e1.xpm", &x, &y);
+	game->exit_o.ptr = mlx_xpm_file_to_image(game->mlx, "img/e2.xpm", &x, &y);
 	game->collect.ptr = mlx_xpm_file_to_image(game->mlx, "img/key.xpm", &x, &y);
 }

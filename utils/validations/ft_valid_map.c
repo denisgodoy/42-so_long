@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/17 00:15:01 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/17 00:38:43 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	ft_map_char(t_game *game)
 			else if (game->map_utils.map[h][w] == 'E')
 				game->counter.e++;
 			else if (!ft_strchr("10CPE\n", game->map_utils.map[h][w]))
-				ft_error_handler("Invalid map");
+				ft_error_handler("Map misconfiguration");
 		}
 		h++;
 	}
@@ -64,7 +64,7 @@ static void	ft_map_size(t_game *game)
 		w = 0;
 		while (game->map_utils.map[h][w])
 			w++;
-		if (w != (int)line_len)
+		if (w != line_len)
 			ft_error_handler("Map misconfiguration");
 		h++;
 	}

@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/16 23:06:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/17 01:07:23 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int	ft_key_input(int key, t_game *game)
 {
-	int	x;
-	int	y;
-
-	x = game->player.x;
-	y = game->player.y;
 	if (key == LEFT)
 		game->player.x -= IMG_SIZE;
 	else if (key == RIGHT)
