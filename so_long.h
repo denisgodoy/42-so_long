@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 16:04:34 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 17:01:16 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct s_game
 }	t_game;
 
 void	ft_check_args(int argc, char **argv, t_game *game);
+void	ft_collect_item(t_game *game);
 void	ft_error_handler(char *str);
 void	ft_img_init(t_game *game);
 int		ft_key_input(int key, t_game *game);
