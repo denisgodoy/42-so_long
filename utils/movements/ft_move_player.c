@@ -6,35 +6,37 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:12:15 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 00:02:02 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 00:23:10 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../so_long.h"
 
-void	ft_move_player(t_game *game, int m)
+int	ft_move_player(t_game *game, int move)
 {
 	static int	movement;
 
-	if (m == left && !(game->player.x <= IMGDIM))
+	if (move == left && !(game->player.x <= IMG_SIZE))
 	{
-		game->player.x -= IMGDIM;
-		movement++;
+		game->player.x -= IMG_SIZE;
+		return (movement++);
 	}
-	if (m == right && !(game->player.x >= (game->plan.width * IMGDIM) - IMGDIM))
+	else if (move == right
+		&& !(game->player.x >= (game->plan.width * IMG_SIZE) - IMG_SIZE))
 	{
-		game->player.x += IMGDIM;
-		movement++;
+		game->player.x += IMG_SIZE;
+		return (movement++);
 	}
-	if (m == up && !(game->player.y <= IMGDIM))
+	else if (move == up && !(game->player.y <= IMG_SIZE))
 	{
-		game->player.y -= IMGDIM;
-		movement++;
+		game->player.y -= IMG_SIZE;
+		return (movement++);
 	}
-	if (m == down && !(game->player.y >= (game->plan.height * IMGDIM) - IMGDIM))
+	else if (move == down
+		&& !(game->player.y >= (game->plan.height * IMG_SIZE) - IMG_SIZE))
 	{
-		game->player.y += IMGDIM;
-		movement++;
+		game->player.y += IMG_SIZE;
+		return (movement++);
 	}
-	game->player.moves = movement;
+	return (0);
 }

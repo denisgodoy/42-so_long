@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 01:26:10 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/18 23:59:52 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 00:14:17 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,28 @@ void	ft_parse_line(t_game *game, int h, int w)
 	}
 	else if (game->plan.map[h][w] == 'C')
 		mlx_put_image_to_window(game->mlx, game->win, game->collect.ptr,
-			(IMGDIM * w), (IMGDIM * h));
+			(IMG_SIZE * w), (IMG_SIZE * h));
 	else if (game->plan.map[h][w] == 'E')
 		ft_count_collects(game, h, w);
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
-			(IMGDIM * w), (IMGDIM * h));
+			(IMG_SIZE * w), (IMG_SIZE * h));
 }
 
 static void	ft_player_position(t_game *game, int h, int w)
 {
-	game->player.x = (w * IMGDIM);
-	game->player.y = (h * IMGDIM);
+	game->player.x = (w * IMG_SIZE);
+	game->player.y = (h * IMG_SIZE);
 	mlx_put_image_to_window(game->mlx, game->win, game->player.p.ptr,
-		(IMGDIM * w), (IMGDIM * h));
+		(IMG_SIZE * w), (IMG_SIZE * h));
 }
 
 static void	ft_count_collects(t_game *game, int h, int w)
 {
 	if (!game->counter.c)
 		mlx_put_image_to_window(game->mlx, game->win, game->exit_o.ptr,
-			(IMGDIM * w), (IMGDIM * h));
+			(IMG_SIZE * w), (IMG_SIZE * h));
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->exit_c.ptr,
-			(IMGDIM * w), (IMGDIM * h));
+			(IMG_SIZE * w), (IMG_SIZE * h));
 }
