@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 09:25:52 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 13:10:53 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_parse_line(t_game *game, int h, int w);
 static void	ft_player_position(t_game *game, int h, int w);
-static void	ft_count_collects(t_game *game, int h, int w);
+static void	ft_check_collects(t_game *game, int h, int w);
 
 void	ft_make_map(t_game *game)
 {
@@ -49,7 +49,7 @@ static void	ft_parse_line(t_game *game, int h, int w)
 		mlx_put_image_to_window(game->mlx, game->win, game->collect.ptr,
 			(IMG_SIZE * w), (IMG_SIZE * h));
 	else if (game->plan.map[h][w] == 'E')
-		ft_count_collects(game, h, w);
+		ft_check_collects(game, h, w);
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
 			(IMG_SIZE * w), (IMG_SIZE * h));
@@ -63,7 +63,7 @@ static void	ft_player_position(t_game *game, int h, int w)
 		(IMG_SIZE * w), (IMG_SIZE * h));
 }
 
-static void	ft_count_collects(t_game *game, int h, int w)
+static void	ft_check_collects(t_game *game, int h, int w)
 {
 	if (!game->counter.c)
 		mlx_put_image_to_window(game->mlx, game->win, game->exit_o.ptr,
