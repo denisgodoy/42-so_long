@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 00:27:45 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 09:23:09 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void	ft_make_map(t_game *game);
 void	ft_map_format(t_game *game);
 void	ft_max_resolution(t_game *game);
 int		ft_move_player(t_game *game, int move);
-void	ft_parse_line(t_game *game, int h, int w);
 void	ft_put_walls(t_game *game, int h, int w);
 char	*ft_read_map(t_game *game);
 void	ft_validate_map_str(char *map);
