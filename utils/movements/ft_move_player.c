@@ -6,13 +6,14 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:12:15 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 16:07:55 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 19:43:07 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../so_long.h"
 
 static int	ft_mid_walls(t_game *game, int move);
+static int	ft_check_exit(t_game *game, int move);
 
 int	ft_move_player(t_game *game, int move)
 {
@@ -46,20 +47,41 @@ int	ft_move_player(t_game *game, int move)
 static int	ft_mid_walls(t_game *game, int move)
 {
 	if (move == left
+		&& (game->plan.map[(game->player.y / IMG)][((game->player.x / IMG) - 1)]
+		== '1' || ft_check_exit(game, left)))
+		return (1);
+	else if (move == right
+		&& (game->plan.map[(game->player.y / IMG)][((game->player.x / IMG) + 1)]
+		== '1' || ft_check_exit(game, right)))
+		return (1);
+	else if (move == up
+		&& (game->plan.map[((game->player.y / IMG) - 1)][(game->player.x / IMG)]
+		== '1' || ft_check_exit(game, up)))
+		return (1);
+	else if (move == down
+		&& (game->plan.map[((game->player.y / IMG) + 1)][(game->player.x / IMG)]
+		== '1' || ft_check_exit(game, down)))
+		return (1);
+	return (0);
+}
+
+static int	ft_check_exit(t_game *game, int move)
+{
+	if (move == left
 		&& game->plan.map[(game->player.y / IMG)][((game->player.x / IMG) - 1)]
-		== '1')
+		== 'E' && game->counter.c > 0)
 		return (1);
 	else if (move == right
 		&& game->plan.map[(game->player.y / IMG)][((game->player.x / IMG) + 1)]
-		== '1')
+		== 'E' && game->counter.c > 0)
 		return (1);
 	else if (move == up
-		&& game->plan.map[((game->player.y / IMG) - 1)][(game->player.x / IMG)]
-		== '1')
+		&& game->plan.map[(game->player.y / IMG)][((game->player.x / IMG) - 1)]
+		== 'E' && game->counter.c > 0)
 		return (1);
 	else if (move == down
-		&& game->plan.map[((game->player.y / IMG) + 1)][(game->player.x / IMG)]
-		== '1')
+		&& game->plan.map[(game->player.y / IMG)][((game->player.x / IMG) + 1)]
+		== 'E' && game->counter.c > 0)
 		return (1);
 	return (0);
 }
