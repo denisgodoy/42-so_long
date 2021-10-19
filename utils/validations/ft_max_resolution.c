@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 03:46:00 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/18 18:07:04 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 00:00:23 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	ft_max_resolution(t_game *game)
 	mlx_get_screen_size(game->mlx, &width, &height);
 	width = (width * 90) / 100;
 	height = (height * 80) / 100;
-	if ((game->map_utils.height * IMG_SIZE) > height
-		|| (game->map_utils.width * IMG_SIZE) > width)
+	if ((game->plan.height * IMGDIM) > height
+		|| (game->plan.width * IMGDIM) > width)
 	{
 		printf("Max screen resolution: %dx%d\nMap resolution: %dx%d\n",
 			width, height,
-			game->map_utils.width * IMG_SIZE,
-			game->map_utils.height * IMG_SIZE);
+			game->plan.width * IMGDIM,
+			game->plan.height * IMGDIM);
 		ft_error_handler("Map is way too big");
 	}
 }

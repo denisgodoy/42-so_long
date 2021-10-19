@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/17 04:14:23 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/18 23:54:48 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ static void	ft_map_char(t_game *game)
 	game->counter.c = 0;
 	game->counter.e = 0;
 	game->counter.p = 0;
-	while (game->map_utils.map[h])
+	while (game->plan.map[h])
 	{
 		w = 0;
-		while (game->map_utils.map[h][w++])
+		while (game->plan.map[h][w++])
 		{
-			if (game->map_utils.map[h][w] == 'C')
+			if (game->plan.map[h][w] == 'C')
 				game->counter.c++;
-			else if (game->map_utils.map[h][w] == 'P')
+			else if (game->plan.map[h][w] == 'P')
 				game->counter.p++;
-			else if (game->map_utils.map[h][w] == 'E')
+			else if (game->plan.map[h][w] == 'E')
 				game->counter.e++;
-			else if (!ft_strchr("10CPE\n", game->map_utils.map[h][w]))
+			else if (!ft_strchr("10CPE\n", game->plan.map[h][w]))
 				ft_error_handler("Map misconfiguration");
 		}
 		h++;
@@ -58,17 +58,17 @@ static void	ft_map_size(t_game *game)
 	int	line_len;
 
 	h = 0;
-	line_len = (int)ft_strlen(game->map_utils.map[h]);
-	while (game->map_utils.map[h])
+	line_len = (int)ft_strlen(game->plan.map[h]);
+	while (game->plan.map[h])
 	{
 		w = 0;
-		while (game->map_utils.map[h][w])
+		while (game->plan.map[h][w])
 			w++;
 		if (w != line_len)
 			ft_error_handler("Map misconfiguration");
 		h++;
 	}
-	game->map_utils.width = line_len - 1;
-	game->map_utils.height = h - 1;
+	game->plan.width = line_len - 1;
+	game->plan.height = h - 1;
 	ft_max_resolution(game);
 }

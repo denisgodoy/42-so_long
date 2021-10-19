@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   walls.c                                            :+:      :+:    :+:   */
+/*   ft_put_walls.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:34:10 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/15 11:27:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 00:00:07 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,33 +25,33 @@ static void	ft_check_corners(t_game *game, int h, int w)
 {
 	if (h == 0 && w == 0)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_ur.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
-	else if (h == 0 && w == game->map_utils.width)
+			(IMGDIM * w), (IMGDIM * h));
+	else if (h == 0 && w == game->plan.width)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_ul.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
-	else if (h == game->map_utils.height && w == 0)
+			(IMGDIM * w), (IMGDIM * h));
+	else if (h == game->plan.height && w == 0)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_bl.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
-	else if (h == game->map_utils.height && w == game->map_utils.width)
+			(IMGDIM * w), (IMGDIM * h));
+	else if (h == game->plan.height && w == game->plan.width)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_br.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
+			(IMGDIM * w), (IMGDIM * h));
 }
 
 static void	ft_check_lines(t_game *game, int h, int w)
 {
-	if (h > 0 && h < game->map_utils.height && w == 0)
+	if (h > 0 && h < game->plan.height && w == 0)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_r.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
-	else if (h > 0 && h < game->map_utils.height && w == game->map_utils.width)
+			(IMGDIM * w), (IMGDIM * h));
+	else if (h > 0 && h < game->plan.height && w == game->plan.width)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_l.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
-	else if (h == 0 && w > 0 && w < game->map_utils.width)
+			(IMGDIM * w), (IMGDIM * h));
+	else if (h == 0 && w > 0 && w < game->plan.width)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_u.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
-	else if (h == game->map_utils.height && w > 0 && w < game->map_utils.width)
+			(IMGDIM * w), (IMGDIM * h));
+	else if (h == game->plan.height && w > 0 && w < game->plan.width)
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_b.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
+			(IMGDIM * w), (IMGDIM * h));
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_m.ptr,
-			(IMG_SIZE * w), (IMG_SIZE * h));
+			(IMGDIM * w), (IMGDIM * h));
 }

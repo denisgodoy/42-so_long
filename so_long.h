@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/17 04:16:32 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/18 23:59:21 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,15 @@
 # define LEFT 		97
 # define RIGHT 		100
 # define ESC		65307
-# define IMG_SIZE	40
+# define IMGDIM		40
+
+enum e_direction
+{
+	left,
+	right,
+	up,
+	down
+};
 
 typedef struct s_img
 {
@@ -51,6 +59,7 @@ typedef struct s_player
 	t_img	p;
 	int		x;
 	int		y;
+	int		moves;
 }	t_player;
 
 typedef struct s_game
@@ -59,7 +68,7 @@ typedef struct s_game
 	void		*win;
 	char		*filename;
 	t_count		counter;
-	t_map		map_utils;
+	t_map		plan;
 	t_player	player;
 	t_img		wall_l;
 	t_img		wall_r;
@@ -88,5 +97,6 @@ void	ft_validate_map_str(char *map);
 void	ft_error_handler(char *str);
 void	ft_parse_line(t_game *game, int h, int w);
 void	ft_max_resolution(t_game *game);
+void	ft_move_player(t_game *game, int move);
 
 #endif

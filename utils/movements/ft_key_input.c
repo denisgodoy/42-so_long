@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/17 01:07:23 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/18 23:29:00 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	ft_key_input(int key, t_game *game)
 {
 	if (key == LEFT)
-		game->player.x -= IMG_SIZE;
+		ft_move_player(game, left);
 	else if (key == RIGHT)
-		game->player.x += IMG_SIZE;
+		ft_move_player(game, right);
 	else if (key == UP)
-		game->player.y -= IMG_SIZE;
+		ft_move_player(game, up);
 	else if (key == DOWN)
-		game->player.y += IMG_SIZE;
+		ft_move_player(game, down);
 	else if (key == ESC)
 		exit(1);
 	mlx_clear_window(game->mlx, game->win);
