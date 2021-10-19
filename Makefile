@@ -31,3 +31,8 @@ fclean: clean
 	$(MAKE) -C ./42-libft fclean
 
 re: fclean all
+
+commit:
+	git add .
+	git commit -m "update so_long"
+	git push origin main
