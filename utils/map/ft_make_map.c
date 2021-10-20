@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 17:19:06 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 20:44:28 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	ft_player_position(t_game *game, int h, int w)
 
 static void	ft_check_collects(t_game *game, int h, int w)
 {
-	if (!game->counter.c)
+	if (!game->plan.c)
 		mlx_put_image_to_window(game->mlx, game->win, game->exit_o.ptr,
 			(IMG * w), (IMG * h));
 	else

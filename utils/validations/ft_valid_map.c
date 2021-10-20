@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/18 23:54:48 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 21:17:21 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	ft_map_char(t_game *game);
 static void	ft_map_size(t_game *game);
+static void	ft_check_chars(t_game *game, int h, int w);
 
 void	ft_valid_map(t_game *game)
 {
@@ -28,26 +29,22 @@ static void	ft_map_char(t_game *game)
 	int	w;
 
 	h = 0;
-	game->counter.c = 0;
-	game->counter.e = 0;
-	game->counter.p = 0;
+	game->plan.c = 0;
+	game->plan.p = 0;
+	game->plan.e = 0;
+	game->plan.s = 0;
 	while (game->plan.map[h])
 	{
 		w = 0;
-		while (game->plan.map[h][w++])
+		while (game->plan.map[h][w])
 		{
-			if (game->plan.map[h][w] == 'C')
-				game->counter.c++;
-			else if (game->plan.map[h][w] == 'P')
-				game->counter.p++;
-			else if (game->plan.map[h][w] == 'E')
-				game->counter.e++;
-			else if (!ft_strchr("10CPE\n", game->plan.map[h][w]))
-				ft_error_handler("Map misconfiguration");
+			ft_check_chars(game, h, w);
+			w++;
 		}
 		h++;
 	}
-	if (!(game->counter.c > 0 && game->counter.p == 1 && game->counter.e == 1))
+	if (!(game->plan.c > 0 && game->plan.p == 1 && game->plan.e == 1
+			&& game->plan.s > 0))
 		ft_error_handler("Invalid map");
 }
 
@@ -71,4 +68,18 @@ static void	ft_map_size(t_game *game)
 	game->plan.width = line_len - 1;
 	game->plan.height = h - 1;
 	ft_max_resolution(game);
+}
+
+static void	ft_check_chars(t_game *game, int h, int w)
+{
+	if (game->plan.map[h][w] == 'C')
+		game->plan.c++;
+	else if (game->plan.map[h][w] == 'P')
+		game->plan.p++;
+	else if (game->plan.map[h][w] == 'E')
+		game->plan.e++;
+	else if (game->plan.map[h][w] == '0')
+		game->plan.s++;
+	else if (!ft_strchr("10CPE", game->plan.map[h][w]))
+		ft_error_handler("Map misconfiguration");
 }
