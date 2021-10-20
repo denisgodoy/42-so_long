@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 20:50:17 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 22:57:45 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ void	ft_put_walls(t_game *game, int h, int w);
 char	*ft_read_map(t_game *game);
 void	ft_validate_map_str(char *map);
 void	ft_valid_map(t_game *game);
+void	ft_exit_map(t_game *game);
 
 #endif

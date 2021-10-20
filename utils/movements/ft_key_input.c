@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 17:00:44 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/19 23:26:43 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	ft_key_input(int key, t_game *game)
 		exit(1);
 	ft_print_moves(game);
 	ft_collect_item(game);
+	ft_exit_map(game);
 	mlx_clear_window(game->mlx, game->win);
 	ft_make_map(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->player.p.ptr,
