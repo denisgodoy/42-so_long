@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/20 15:52:35 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 00:40:38 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "42-gnl/get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
+# include <time.h>
 
 # define UP 	119
 # define DOWN 	115
@@ -49,12 +50,13 @@ typedef struct s_map
 	int		p;
 	int		s;
 	int		e;
-	int		t;
 }	t_map;
 
 typedef struct s_player
 {
-	t_img	p;
+	t_img	p1;
+	t_img	p2;
+	t_img	p3;
 	int		x;
 	int		y;
 	int		moves;
@@ -62,7 +64,11 @@ typedef struct s_player
 
 typedef struct s_enemy
 {
-	t_img	p;
+	t_img	p1;
+	t_img	p2;
+	t_img	p3;
+	t_img	p4;
+	t_img	p5;
 	int		x;
 	int		y;
 }	t_enemy;
@@ -90,8 +96,12 @@ typedef struct s_game
 	t_enemy		enemy;
 }	t_game;
 
+int		ft_animate_player(t_game *game);
+int		ft_animate_enemy(t_game *game);
+int		ft_animations(t_game *game);
 void	ft_check_args(int argc, char **argv, t_game *game);
 void	ft_collect_item(t_game *game);
+void	ft_delay(int ms);
 void	ft_error_handler(char *str);
 void	ft_img_init(t_game *game);
 int		ft_key_input(int key, t_game *game);

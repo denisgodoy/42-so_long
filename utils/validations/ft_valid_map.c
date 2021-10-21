@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 21:17:21 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 00:46:13 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ static void	ft_check_chars(t_game *game, int h, int w)
 		game->plan.e++;
 	else if (game->plan.map[h][w] == '0')
 		game->plan.s++;
-	else if (!ft_strchr("10CPE", game->plan.map[h][w]))
+	else if (!(game->plan.map[h][w] == '1'))
 		ft_error_handler("Map misconfiguration");
 }

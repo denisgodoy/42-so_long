@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/20 16:48:35 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/20 19:23:38 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void	ft_map_char(t_game *game)
 	game->plan.p = 0;
 	game->plan.e = 0;
 	game->plan.s = 0;
-	game->plan.t = 0;
 	while (game->plan.map[h])
 	{
 		w = 0;
@@ -81,8 +80,6 @@ static void	ft_check_chars(t_game *game, int h, int w)
 		game->plan.e++;
 	else if (game->plan.map[h][w] == '0')
 		game->plan.s++;
-	else if (game->plan.map[h][w] == 'T')
-		game->plan.t++;
-	else if (!ft_strchr("10CPET", game->plan.map[h][w]))
+	else if (!ft_strchr("1T", game->plan.map[h][w]))
 		ft_error_handler("Map misconfiguration");
 }

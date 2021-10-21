@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/20 15:59:00 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 00:17:37 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_key_input(int key, t_game *game)
 	ft_exit_map(game);
 	mlx_clear_window(game->mlx, game->win);
 	ft_make_map(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->player.p.ptr,
+	mlx_put_image_to_window(game->mlx, game->win, game->player.p1.ptr,
 		game->player.x, game->player.y);
 	return (0);
 }

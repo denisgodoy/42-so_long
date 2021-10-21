@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit_map_bonus.c                                :+:      :+:    :+:   */
+/*   ft_delay.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 22:56:06 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 00:49:29 by degabrie         ###   ########.fr       */
+/*   Created: 2021/10/20 23:41:05 by degabrie          #+#    #+#             */
+/*   Updated: 2021/10/20 23:43:29 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../so_long_bonus.h"
 
-void	ft_exit_map(t_game *game)
+void	ft_delay(int ms)
 {
-	if (game->plan.map[(game->player.y / IMG)][(game->player.x / IMG)] == 'E')
-	{
-		printf("\033[1;32m\nCongratulations! Level Complete!\n\033[1m");
-		exit(1);
-	}
-	else if (game->plan.map[(game->player.y / IMG)][(game->player.x / IMG)]
-		== 'T')
-	{
-		printf("\033[1;31m\nGame Over! You Died!\n\033[1m");
-		exit(1);
-	}
+	long	pause;
+	clock_t	now;
+	clock_t	then;
+
+	pause = ms * (CLOCKS_PER_SEC / 1000);
+	then = clock();
+	now = then;
+	while ((now - then) < pause)
+		now = clock();
 }

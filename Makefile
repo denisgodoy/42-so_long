@@ -48,7 +48,12 @@ BONUS_SRC := main_bonus.c \
 			$(addprefix utils_bonus/movements/, \
 			ft_key_input_bonus.c \
 			ft_move_player_bonus.c \
-			ft_collect_item_bonus.c)
+			ft_collect_item_bonus.c) \
+			$(addprefix utils_bonus/animations/, \
+			ft_animate_player_bonus.c \
+			ft_animate_enemy_bonus.c \
+			ft_animations_bonus.c \
+			ft_delay_bonus.c)
 
 OBJ := $(SRC:%.c=%.o)
 

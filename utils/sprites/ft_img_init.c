@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:41:33 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/17 01:34:36 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 01:09:02 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	ft_player_img(t_game *game)
 	int	y;
 	int	x;
 
-	game->player.p.ptr = mlx_xpm_file_to_image(game->mlx, "img/r1.xpm", &x, &y);
+	game->player.p.ptr = mlx_xpm_file_to_image(game->mlx, "img/7.xpm", &x, &y);
 }
 
 static void	ft_map_img(t_game *game)

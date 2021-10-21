@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:41:33 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/20 15:58:38 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 01:08:38 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ static void	ft_player_img(t_game *game)
 	int	y;
 	int	x;
 
-	game->player.p.ptr = mlx_xpm_file_to_image(game->mlx, "img/r1.xpm", &x, &y);
+	game->player.p1.ptr = mlx_xpm_file_to_image(game->mlx, "img/7.xpm", &x, &y);
+	game->player.p2.ptr = mlx_xpm_file_to_image(game->mlx, "img/8.xpm", &x, &y);
+	game->player.p3.ptr = mlx_xpm_file_to_image(game->mlx, "img/9.xpm", &x, &y);
 }
 
 static void	ft_enemy_img(t_game *game)
@@ -36,7 +38,11 @@ static void	ft_enemy_img(t_game *game)
 	int	y;
 	int	x;
 
-	game->enemy.p.ptr = mlx_xpm_file_to_image(game->mlx, "img/whirl1.xpm", &x, &y);
+	game->enemy.p1.ptr = mlx_xpm_file_to_image(game->mlx, "img/t1.xpm", &x, &y);
+	game->enemy.p2.ptr = mlx_xpm_file_to_image(game->mlx, "img/t2.xpm", &x, &y);
+	game->enemy.p3.ptr = mlx_xpm_file_to_image(game->mlx, "img/t3.xpm", &x, &y);
+	game->enemy.p4.ptr = mlx_xpm_file_to_image(game->mlx, "img/t4.xpm", &x, &y);
+	game->enemy.p5.ptr = mlx_xpm_file_to_image(game->mlx, "img/t5.xpm", &x, &y);
 }
 
 static void	ft_map_img(t_game *game)

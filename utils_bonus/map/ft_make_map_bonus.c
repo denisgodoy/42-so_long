@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/20 16:11:44 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 00:47:52 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 static void	ft_parse_line(t_game *game, int h, int w);
 static void	ft_player_position(t_game *game, int h, int w);
 static void	ft_check_collects(t_game *game, int h, int w);
-/* static void	ft_enemy_position(t_game *game, int h, int w);
- */
+
 void	ft_make_map(t_game *game)
 {
 	int	h;
@@ -51,9 +50,8 @@ static void	ft_parse_line(t_game *game, int h, int w)
 			(IMG * w), (IMG * h));
 	else if (game->plan.map[h][w] == 'E')
 		ft_check_collects(game, h, w);
-	else if (game->plan.map[h][w] == 'T' /* && count == 1 */)
-/* 		ft_enemy_position(game, h, w);*/
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p.ptr,
+	else if (game->plan.map[h][w] == 'T')
+		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p1.ptr,
 			(IMG * w), (IMG * h));
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
@@ -64,7 +62,7 @@ static void	ft_player_position(t_game *game, int h, int w)
 {
 	game->player.x = (w * IMG);
 	game->player.y = (h * IMG);
-	mlx_put_image_to_window(game->mlx, game->win, game->player.p.ptr,
+	mlx_put_image_to_window(game->mlx, game->win, game->player.p1.ptr,
 		(IMG * w), (IMG * h));
 }
 
@@ -77,12 +75,3 @@ static void	ft_check_collects(t_game *game, int h, int w)
 		mlx_put_image_to_window(game->mlx, game->win, game->exit_c.ptr,
 			(IMG * w), (IMG * h));
 }
-/* 
-static void	ft_enemy_position(t_game *game, int h, int w)
-{
-	game->enemy.x = (w * IMG);
-	game->enemy.y = (h * IMG);
-	mlx_put_image_to_window(game->mlx, game->win, game->enemy.p.ptr,
-		(IMG * w), (IMG * h));
-}
- */
