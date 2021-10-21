@@ -6,13 +6,14 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 00:17:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 11:17:56 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../so_long_bonus.h"
 
 static void	ft_print_moves(t_game *game);
+static void	ft_put_image_to_window(t_game *game, int key);
 
 int	ft_key_input(int key, t_game *game)
 {
@@ -32,8 +33,7 @@ int	ft_key_input(int key, t_game *game)
 	ft_exit_map(game);
 	mlx_clear_window(game->mlx, game->win);
 	ft_make_map(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->player.p1.ptr,
-		game->player.x, game->player.y);
+	ft_put_image_to_window(game, key);
 	return (0);
 }
 
@@ -43,5 +43,33 @@ static void	ft_print_moves(t_game *game)
 	{
 		ft_putstr_fd("\rMovements: ", 1);
 		ft_putnbr_fd(game->player.moves, 1);
+	}
+}
+
+static void	ft_put_image_to_window(t_game *game, int key)
+{
+	if (key == LEFT)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->player.p4.ptr,
+			game->player.x, game->player.y);
+		game->key_press = key;
+	}
+	else if (key == UP)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->player.p7.ptr,
+			game->player.x, game->player.y);
+		game->key_press = key;
+	}
+	else if (key == DOWN)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->player.pa.ptr,
+			game->player.x, game->player.y);
+		game->key_press = key;
+	}
+	else if (key == RIGHT)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->player.p1.ptr,
+			game->player.x, game->player.y);
+		game->key_press = key;
 	}
 }

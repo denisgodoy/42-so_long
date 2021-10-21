@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 00:40:38 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 10:49:03 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,15 @@ typedef struct s_player
 	t_img	p1;
 	t_img	p2;
 	t_img	p3;
+	t_img	p4;
+	t_img	p5;
+	t_img	p6;
+	t_img	p7;
+	t_img	p8;
+	t_img	p9;
+	t_img	pa;
+	t_img	pb;
+	t_img	pc;
 	int		x;
 	int		y;
 	int		moves;
@@ -78,6 +87,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	char		*filename;
+	int			key_press;
 	t_map		plan;
 	t_player	player;
 	t_img		wall_l;
