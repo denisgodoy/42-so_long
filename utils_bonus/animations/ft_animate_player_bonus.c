@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:41:01 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 11:19:19 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 12:07:23 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,22 @@ static int	ft_animate_player_left(t_game *game)
 {
 	static int	i;
 
-	if (i == 4)
+	if (i == 3)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p4.ptr,
 			game->player.x, game->player.y);
-	else if (i == 8)
+	else if (i == 6)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p5.ptr,
 			game->player.x, game->player.y);
-	else if (i == 12)
+	else if (i == 9)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p6.ptr,
 			game->player.x, game->player.y);
-	else if (i == 16)
+	else if (i == 12)
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p5.ptr,
 			game->player.x, game->player.y);
 		i = 0;
 	}
-	ft_delay(50);
+	ft_delay(40);
 	i++;
 	return (0);
 }
@@ -61,22 +61,22 @@ static int	ft_animate_player_right(t_game *game)
 {
 	static int	i;
 
-	if (i == 4)
+	if (i == 3)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p1.ptr,
 			game->player.x, game->player.y);
-	else if (i == 8)
+	else if (i == 6)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p2.ptr,
 			game->player.x, game->player.y);
-	else if (i == 12)
+	else if (i == 9)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p3.ptr,
 			game->player.x, game->player.y);
-	else if (i == 16)
+	else if (i == 12)
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p2.ptr,
 			game->player.x, game->player.y);
 		i = 0;
 	}
-	ft_delay(50);
+	ft_delay(40);
 	i++;
 	return (0);
 }
@@ -85,22 +85,22 @@ static int	ft_animate_player_up(t_game *game)
 {
 	static int	i;
 
-	if (i == 4)
+	if (i == 3)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p7.ptr,
 			game->player.x, game->player.y);
-	else if (i == 8)
+	else if (i == 6)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p8.ptr,
 			game->player.x, game->player.y);
-	else if (i == 12)
+	else if (i == 9)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p9.ptr,
 			game->player.x, game->player.y);
-	else if (i == 16)
+	else if (i == 12)
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p8.ptr,
 			game->player.x, game->player.y);
 		i = 0;
 	}
-	ft_delay(50);
+	ft_delay(40);
 	i++;
 	return (0);
 }
@@ -109,22 +109,22 @@ static int	ft_animate_player_down(t_game *game)
 {
 	static int	i;
 
-	if (i == 4)
+	if (i == 3)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.pa.ptr,
 			game->player.x, game->player.y);
-	else if (i == 8)
+	else if (i == 6)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.pb.ptr,
 			game->player.x, game->player.y);
-	else if (i == 12)
+	else if (i == 9)
 		mlx_put_image_to_window(game->mlx, game->win, game->player.pc.ptr,
 			game->player.x, game->player.y);
-	else if (i == 16)
+	else if (i == 12)
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.pb.ptr,
 			game->player.x, game->player.y);
 		i = 0;
 	}
-	ft_delay(50);
+	ft_delay(40);
 	i++;
 	return (0);
 }
