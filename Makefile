@@ -7,7 +7,9 @@ CFLAGS := -Wall -Wextra -Werror -g
 SRC := main.c \
 		$(addprefix utils/, \
 		ft_free_game.c \
-		ft_free_map.c) \
+		ft_free_map.c \
+		ft_close_window.c \
+		ft_move_window.c) \
 		$(addprefix 42-gnl/, \
 		get_next_line.c \
 		get_next_line_utils.c) \

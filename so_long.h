@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 22:14:02 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/22 10:12:51 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define UP 		119
-# define DOWN 		115
-# define LEFT 		97
-# define RIGHT		100
-# define ESC		65307
-# define IMG		40
-# define SUCCESS	"\033[1;32m"
-# define RESET   	"\033[0m"
+# define UP 			119
+# define DOWN 			115
+# define LEFT 			97
+# define RIGHT			100
+# define ESC			65307
+# define IMG			40
+# define SUCCESS		"\033[1;32m"
+# define RESET   		"\033[0m"
+# define X_DESTROY		17
+# define X_EXPOSE		12
 
 enum e_direction
 {
@@ -92,6 +94,7 @@ typedef struct s_game
 }	t_game;
 
 void	ft_check_args(int argc, char **argv, t_game *game);
+int		ft_close_window(t_game *game);
 void	ft_collect_item(t_game *game);
 void	ft_error_handler(t_game *game, char *str, int clear);
 void	ft_exit_map(t_game *game);
@@ -103,6 +106,7 @@ void	ft_make_map(t_game *game);
 void	ft_map_format(t_game *game);
 void	ft_max_resolution(t_game *game);
 int		ft_move_player(t_game *game, int move);
+int		ft_move_window(t_game *game);
 void	ft_put_walls(t_game *game, int h, int w);
 char	*ft_read_map(t_game *game);
 void	ft_validate_map_str(t_game *game, char *map);

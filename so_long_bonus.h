@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/22 09:55:22 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/22 10:11:19 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@
 # define WARNING		"\033[1;33m"
 # define RESET   		"\033[0m"
 # define X_DESTROY		17
-# define NO_MASK		(0L)
 # define X_EXPOSE		12
-# define EXPOSE_MASK	(1L << 15)
 
 enum e_direction
 {
@@ -138,8 +136,8 @@ int		ft_key_input(int key, t_game *game);
 void	ft_make_map(t_game *game);
 void	ft_map_format(t_game *game);
 void	ft_max_resolution(t_game *game);
-int		ft_move_window(t_game *game);
 int		ft_move_player(t_game *game, int move);
+int		ft_move_window(t_game *game);
 void	ft_put_walls(t_game *game, int h, int w);
 char	*ft_read_map(t_game *game);
 void	ft_validate_map_str(t_game *game, char *map);

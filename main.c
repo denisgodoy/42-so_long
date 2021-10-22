@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 16:52:29 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/22 10:10:38 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 	ft_img_init(&game);
 	ft_make_map(&game);
 	mlx_key_hook(game.win, &ft_key_input, &game);
+	mlx_hook(game.win, X_DESTROY, (0L), &ft_close_window, &game);
+	mlx_hook(game.win, X_EXPOSE, (1L << 15), &ft_move_window, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }
