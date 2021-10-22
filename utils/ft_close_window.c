@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 09:35:34 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/22 10:10:10 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/22 12:26:54 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	ft_close_window(t_game *game)
 {
-	ft_free_game(game);
+	ft_error_handler(game, "\nYou quit the game", clean);
 	return (0);
 }
