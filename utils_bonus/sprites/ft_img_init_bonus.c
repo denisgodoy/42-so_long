@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:41:33 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 10:50:52 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 20:30:01 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ static void	ft_map_img(t_game *game)
 	game->floor.ptr = mlx_xpm_file_to_image(game->mlx, "img/water.xpm", &x, &y);
 	game->exit_c.ptr = mlx_xpm_file_to_image(game->mlx, "img/e1.xpm", &x, &y);
 	game->exit_o.ptr = mlx_xpm_file_to_image(game->mlx, "img/e2.xpm", &x, &y);
-	game->collect.ptr = mlx_xpm_file_to_image(game->mlx, "img/key.xpm", &x, &y);
+	game->key.ptr = mlx_xpm_file_to_image(game->mlx, "img/key.xpm", &x, &y);
 }

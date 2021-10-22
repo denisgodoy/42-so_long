@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/19 22:57:45 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 20:56:37 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ enum e_direction
 	right,
 	up,
 	down
+};
+
+enum e_leave
+{
+	quit,
+	clean,
+	mlx,
+	map
 };
 
 typedef struct s_img
@@ -78,12 +86,15 @@ typedef struct s_game
 	t_img		floor;
 	t_img		exit_c;
 	t_img		exit_o;
-	t_img		collect;
+	t_img		key;
 }	t_game;
 
 void	ft_check_args(int argc, char **argv, t_game *game);
 void	ft_collect_item(t_game *game);
-void	ft_error_handler(char *str);
+void	ft_error_handler(t_game *game, char *str, int clear);
+void	ft_exit_map(t_game *game);
+void	ft_free_game(t_game *game);
+void	ft_free_map(t_game *game);
 void	ft_img_init(t_game *game);
 int		ft_key_input(int key, t_game *game);
 void	ft_make_map(t_game *game);
@@ -92,8 +103,7 @@ void	ft_max_resolution(t_game *game);
 int		ft_move_player(t_game *game, int move);
 void	ft_put_walls(t_game *game, int h, int w);
 char	*ft_read_map(t_game *game);
-void	ft_validate_map_str(char *map);
+void	ft_validate_map_str(t_game *game, char *map);
 void	ft_valid_map(t_game *game);
-void	ft_exit_map(t_game *game);
 
 #endif

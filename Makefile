@@ -2,9 +2,12 @@ NAME := so_long
 
 CC := clang
 
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -g
 
 SRC := main.c \
+		$(addprefix utils/, \
+		ft_free_game.c \
+		ft_free_map.c) \
 		$(addprefix 42-gnl/, \
 		get_next_line.c \
 		get_next_line_utils.c) \
@@ -28,6 +31,9 @@ SRC := main.c \
 		ft_collect_item.c)
 
 BONUS_SRC := main_bonus.c \
+			$(addprefix utils_bonus/, \
+			ft_free_game_bonus.c \
+			ft_free_map_bonus.c) \
 			$(addprefix 42-gnl/, \
 			get_next_line.c \
 			get_next_line_utils.c) \

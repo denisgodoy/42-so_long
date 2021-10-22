@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 00:39:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 16:56:14 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 			((game.plan.height + 1) * IMG), "./so_long");
 	ft_img_init(&game);
 	ft_make_map(&game);
+	game.key_press = 0;
 	mlx_key_hook(game.win, &ft_key_input, &game);
 	mlx_loop_hook(game.mlx, &ft_animations, &game);
 	mlx_loop(game.mlx);

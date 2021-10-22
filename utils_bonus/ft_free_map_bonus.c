@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit_map_bonus.c                                :+:      :+:    :+:   */
+/*   ft_free_map_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 22:56:06 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 16:51:41 by degabrie         ###   ########.fr       */
+/*   Created: 2021/10/21 18:04:34 by degabrie          #+#    #+#             */
+/*   Updated: 2021/10/21 18:04:56 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"../so_long_bonus.h"
 
-void	ft_exit_map(t_game *game)
+void	ft_free_map(t_game *game)
 {
-	if (game->plan.map[(game->player.y / IMG)][(game->player.x / IMG)] == 'E')
+	int	h;
+
+	h = 0;
+	while (game->plan.map[h])
 	{
-		printf("\033[1;32m\nCongratulations! Level Complete!\n\033[0m");
-		ft_free_game(game);
-		exit(1);
+		free(game->plan.map[h]);
+		h++;
 	}
-	else if (game->plan.map[(game->player.y / IMG)][(game->player.x / IMG)]
-		== 'T')
-	{
-		printf("\033[1;31m\nGame Over! You Died!\n\033[0m");
-		ft_free_game(game);
-		exit(1);
-	}
+	free(game->plan.map);
 }
