@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 21:52:38 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/22 09:55:22 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,20 @@
 # include <fcntl.h>
 # include <time.h>
 
-# define UP 		119
-# define DOWN 		115
-# define LEFT 		97
-# define RIGHT		100
-# define ESC		65307
-# define IMG		40
-# define ERROR		"\033[1;31m"
-# define SUCCESS	"\033[1;32m"
-# define WARNING	"\033[1;33m"
-# define RESET   	"\033[0m"
+# define UP 			119
+# define DOWN 			115
+# define LEFT 			97
+# define RIGHT			100
+# define ESC			65307
+# define IMG			40
+# define ERROR			"\033[1;31m"
+# define SUCCESS		"\033[1;32m"
+# define WARNING		"\033[1;33m"
+# define RESET   		"\033[0m"
+# define X_DESTROY		17
+# define NO_MASK		(0L)
+# define X_EXPOSE		12
+# define EXPOSE_MASK	(1L << 15)
 
 enum e_direction
 {
@@ -122,6 +126,7 @@ int		ft_animate_enemy(t_game *game);
 int		ft_animate_player(t_game *game);
 int		ft_animations(t_game *game);
 void	ft_check_args(int argc, char **argv, t_game *game);
+int		ft_close_window(t_game *game);
 void	ft_collect_item(t_game *game);
 void	ft_delay(int ms);
 void	ft_error_handler(t_game *game, char *str, int clear);
@@ -133,6 +138,7 @@ int		ft_key_input(int key, t_game *game);
 void	ft_make_map(t_game *game);
 void	ft_map_format(t_game *game);
 void	ft_max_resolution(t_game *game);
+int		ft_move_window(t_game *game);
 int		ft_move_player(t_game *game, int move);
 void	ft_put_walls(t_game *game, int h, int w);
 char	*ft_read_map(t_game *game);

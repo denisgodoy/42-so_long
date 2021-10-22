@@ -33,7 +33,9 @@ SRC := main.c \
 BONUS_SRC := main_bonus.c \
 			$(addprefix utils_bonus/, \
 			ft_free_game_bonus.c \
-			ft_free_map_bonus.c) \
+			ft_free_map_bonus.c \
+			ft_close_window_bonus.c \
+			ft_move_window_bonus.c) \
 			$(addprefix 42-gnl/, \
 			get_next_line.c \
 			get_next_line_utils.c) \
