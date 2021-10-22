@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:39:02 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 18:38:49 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 22:14:36 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_read_map(t_game *game)
 	if (fd < 0)
 	{
 		free(map_str);
-		ft_error_handler(game, "Map does not exist", mlx);
+		ft_error_handler(game, "Error\nMap does not exist", mlx);
 	}
 	while (1)
 	{

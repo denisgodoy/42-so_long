@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 17:30:55 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 22:10:54 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	ft_key_input(int key, t_game *game)
 	else if (key == DOWN)
 		game->player.moves = ft_move_player(game, down);
 	else if (key == ESC)
-		ft_error_handler(game, "You quit the game", clean);
+	{
+		game->key_press = key;
+		ft_exit_map(game);
+	}
 	ft_print_moves(game);
 	ft_collect_item(game);
 	ft_exit_map(game);

@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 20:56:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/21 22:14:02 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define UP 	119
-# define DOWN 	115
-# define LEFT 	97
-# define RIGHT	100
-# define ESC	65307
-# define IMG	40
+# define UP 		119
+# define DOWN 		115
+# define LEFT 		97
+# define RIGHT		100
+# define ESC		65307
+# define IMG		40
+# define SUCCESS	"\033[1;32m"
+# define RESET   	"\033[0m"
 
 enum e_direction
 {
