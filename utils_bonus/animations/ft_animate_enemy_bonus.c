@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 00:27:15 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/23 00:46:59 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/23 01:06:35 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,54 +15,31 @@
 static int	ft_enemy_line(t_game *game);
 static int	ft_enemy_column(t_game *game);
 static int	ft_slow_down(t_game *game);
-static int	ft_animate_enemy2(t_game *game);
 
 int	ft_animate_enemy(t_game *game)
 {
 	static int	i;
+	int			speed;
 
 	i++;
-	if ((game->plan.t + 1) % 5 == 0 && !ft_animate_enemy2(game))
-		return (0);
-	if (i == 1 * ft_slow_down(game))
+	speed = ft_slow_down(game);
+	if (i == 1 * speed)
 		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p1.ptr,
 			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
-	else if (i == 2 * ft_slow_down(game))
+	else if (i == 2 * speed)
 		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p2.ptr,
 			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
-	else if (i == 3 * ft_slow_down(game))
+	else if (i == 3 * speed)
 		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p3.ptr,
 			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
-	else if (i == 4 * ft_slow_down(game))
+	else if (i == 4 * speed)
 		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p4.ptr,
 			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
-	else if (i == 5 * ft_slow_down(game))
+	else if (i == 5 * speed)
 	{
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p5.ptr,
-			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
-		i = 0;
-	}
-	return (0);
-}
-
-static int	ft_animate_enemy2(t_game *game)
-{
-	static int	i;
-
-	i++;
-	if (i == 1)
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p1.ptr,
-			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
-	else if (i == 2)
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p2.ptr,
-			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
-	else if (i == 3)
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p3.ptr,
-			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
-	else if (i == 4)
-	{
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p4.ptr,
-			(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
+		if (!((game->plan.t + 1) % 5 == 0))
+			mlx_put_image_to_window(game->mlx, game->win, game->enemy.p5.ptr,
+				(ft_enemy_column(game) * IMG), (ft_enemy_line(game) * IMG));
 		i = 0;
 	}
 	return (0);
