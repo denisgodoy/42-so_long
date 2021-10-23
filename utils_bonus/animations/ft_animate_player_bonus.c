@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:41:01 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 22:07:04 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/22 20:03:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	ft_animate_player_left(t_game *game)
 			game->player.x, game->player.y);
 		i = 0;
 	}
-	ft_delay(25);
+	ft_delay(40);
 	i++;
 	return (0);
 }
@@ -76,7 +76,7 @@ static int	ft_animate_player_right(t_game *game)
 			game->player.x, game->player.y);
 		i = 0;
 	}
-	ft_delay(25);
+	ft_delay(40);
 	i++;
 	return (0);
 }
@@ -100,7 +100,7 @@ static int	ft_animate_player_up(t_game *game)
 			game->player.x, game->player.y);
 		i = 0;
 	}
-	ft_delay(25);
+	ft_delay(40);
 	i++;
 	return (0);
 }
@@ -124,7 +124,7 @@ static int	ft_animate_player_down(t_game *game)
 			game->player.x, game->player.y);
 		i = 0;
 	}
-	ft_delay(25);
+	ft_delay(40);
 	i++;
 	return (0);
 }

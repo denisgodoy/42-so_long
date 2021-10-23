@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/22 10:11:19 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/22 23:58:45 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_map
 	int		p;
 	int		s;
 	int		e;
+	int		t;
 }	t_map;
 
 typedef struct s_player
