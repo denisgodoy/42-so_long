@@ -1,8 +1,8 @@
 NAME := so_long
 
-CC := clang
+CC := gcc
 
-CFLAGS := -Wall -Wextra -Werror -g
+CFLAGS := -Wall -Wextra -Werror -g -O3
 
 SRC := main.c \
 		$(addprefix utils/, \
@@ -58,7 +58,8 @@ BONUS_SRC := main_bonus.c \
 			$(addprefix utils_bonus/movements/, \
 			ft_key_input_bonus.c \
 			ft_move_player_bonus.c \
-			ft_collect_item_bonus.c) \
+			ft_collect_item_bonus.c \
+			ft_move_enemy_bonus.c) \
 			$(addprefix utils_bonus/animations/, \
 			ft_animate_player_bonus.c \
 			ft_animate_enemy_bonus.c \
