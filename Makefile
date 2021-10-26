@@ -1,8 +1,8 @@
 NAME := so_long
 
-CC := gcc
+CC := clang
 
-CFLAGS := -Wall -Wextra -Werror -g -O2
+CFLAGS := -Wall -Wextra -Werror -g
 
 SRC := main.c \
 		$(addprefix utils/, \
