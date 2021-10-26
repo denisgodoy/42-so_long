@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/26 17:42:42 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/26 19:00:29 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,16 @@ static void	ft_print_moves(t_game *game)
 	move = ft_itoa(game->player.moves);
 	if (move[0] == '0')
 		free(move);
-	mlx_string_put(game->mlx, game->win, 28, 22, 0x3f2905, "Moves: ");
+	mlx_string_put(game->mlx, game->win, POS_X_STR, POS_Y, STR_COLOR, "Moves:");
 	if (game->player.moves > 0)
 	{
 		temp_move = game->player.moves;
-		mlx_string_put(game->mlx, game->win, 88, 22, 0x3f2905, move);
+		mlx_string_put(game->mlx, game->win, POS_X, POS_Y, STR_COLOR, move);
 		free(move);
 		return ;
 	}
 	last_move = ft_itoa(temp_move);
-	mlx_string_put(game->mlx, game->win, 88, 22, 0x3f2905, last_move);
+	mlx_string_put(game->mlx, game->win, POS_X, POS_Y, STR_COLOR, last_move);
 	free(last_move);
 	return ;
 }

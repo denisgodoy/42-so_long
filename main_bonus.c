@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:45:16 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/26 18:11:01 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/26 18:40:51 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	main(int argc, char **argv)
 	ft_valid_map(&game);
 	game.win = mlx_new_window(game.mlx, ((game.plan.width + 1) * IMG),
 			((game.plan.height + 1) * IMG), "./so_long");
-	mlx_set_font(game.mlx, game.win,
-		"-misc-fixed-bold-r-normal--14-*-*-*-c-90-iso8859-1");
+	mlx_set_font(game.mlx, game.win, FONT);
 	ft_img_init(&game);
 	ft_make_map(&game);
 	mlx_key_hook(game.win, &ft_key_input, &game);
