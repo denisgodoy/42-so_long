@@ -6,18 +6,16 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 22:10:54 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/26 16:28:43 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../../so_long_bonus.h"
 
-static void	ft_print_moves(t_game *game);
 static void	ft_put_image_to_window(t_game *game, int key);
 
 int	ft_key_input(int key, t_game *game)
 {
-	game->player.moves = 0;
 	if (key == LEFT)
 		game->player.moves = ft_move_player(game, left);
 	else if (key == RIGHT)
@@ -31,22 +29,12 @@ int	ft_key_input(int key, t_game *game)
 		game->key_press = key;
 		ft_exit_map(game);
 	}
-	ft_print_moves(game);
 	ft_collect_item(game);
 	ft_exit_map(game);
 	mlx_clear_window(game->mlx, game->win);
 	ft_make_map(game);
 	ft_put_image_to_window(game, key);
 	return (0);
-}
-
-static void	ft_print_moves(t_game *game)
-{
-	if (game->player.moves > 0)
-	{
-		ft_putstr_fd("\rMovements: ", 1);
-		ft_putnbr_fd(game->player.moves, 1);
-	}
 }
 
 static void	ft_put_image_to_window(t_game *game, int key)

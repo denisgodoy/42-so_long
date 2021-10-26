@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/25 11:01:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:42:42 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	ft_parse_line(t_game *game, int h, int w);
 static void	ft_player_position(t_game *game, int h, int w);
 static void	ft_check_collects(t_game *game, int h, int w);
+static void	ft_print_moves(t_game *game);
 
 void	ft_make_map(t_game *game)
 {
@@ -32,6 +33,7 @@ void	ft_make_map(t_game *game)
 		}
 		h++;
 	}
+	ft_print_moves(game);
 }
 
 static void	ft_parse_line(t_game *game, int h, int w)
@@ -74,4 +76,27 @@ static void	ft_check_collects(t_game *game, int h, int w)
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->exit_c.ptr,
 			(IMG * w), (IMG * h));
+}
+
+static void	ft_print_moves(t_game *game)
+{
+	char		*move;
+	static int	temp_move;
+	char		*last_move;
+
+	move = ft_itoa(game->player.moves);
+	if (move[0] == '0')
+		free(move);
+	mlx_string_put(game->mlx, game->win, 28, 22, 0x3f2905, "Moves: ");
+	if (game->player.moves > 0)
+	{
+		temp_move = game->player.moves;
+		mlx_string_put(game->mlx, game->win, 88, 22, 0x3f2905, move);
+		free(move);
+		return ;
+	}
+	last_move = ft_itoa(temp_move);
+	mlx_string_put(game->mlx, game->win, 88, 22, 0x3f2905, last_move);
+	free(last_move);
+	return ;
 }
