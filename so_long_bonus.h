@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/26 19:00:16 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/26 21:40:55 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define POS_X			84
 # define POS_X_STR		28
 # define POS_Y			22
-# define STR_COLOR		0x3f2905
+# define STR_COLOR		0x934d1d
 # define FONT			"-misc-fixed-bold-r-normal--13-*-*-*-c-80-iso8859-1"
 
 enum e_direction
