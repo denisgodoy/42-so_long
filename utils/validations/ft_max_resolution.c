@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_max_resolution.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 03:46:00 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/22 21:52:25 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:27:27 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void	ft_max_resolution(t_game *game)
 			game->plan.height * IMG);
 		ft_error_handler(game, "Error\nThe map is too big", map);
 	}
+	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_make_map_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/26 19:00:29 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:28:35 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	ft_make_map(t_game *game)
 		h++;
 	}
 	ft_print_moves(game);
+	return ;
 }
 
 static void	ft_parse_line(t_game *game, int h, int w)
@@ -58,6 +59,7 @@ static void	ft_parse_line(t_game *game, int h, int w)
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
 			(IMG * w), (IMG * h));
+	return ;
 }
 
 static void	ft_player_position(t_game *game, int h, int w)
@@ -66,6 +68,7 @@ static void	ft_player_position(t_game *game, int h, int w)
 	game->player.y = (h * IMG);
 	mlx_put_image_to_window(game->mlx, game->win, game->player.p2.ptr,
 		(IMG * w), (IMG * h));
+	return ;
 }
 
 static void	ft_check_collects(t_game *game, int h, int w)
@@ -76,6 +79,7 @@ static void	ft_check_collects(t_game *game, int h, int w)
 	else
 		mlx_put_image_to_window(game->mlx, game->win, game->exit_c.ptr,
 			(IMG * w), (IMG * h));
+	return ;
 }
 
 static void	ft_print_moves(t_game *game)

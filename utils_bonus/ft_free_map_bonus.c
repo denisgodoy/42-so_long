@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_map_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 18:04:34 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 18:04:56 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:33:59 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	ft_free_map(t_game *game)
 		h++;
 	}
 	free(game->plan.map);
+	return ;
 }

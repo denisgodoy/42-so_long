@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_map_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 17:52:14 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 22:12:32 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:30:48 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_map_format(t_game *game)
 		ft_error_handler(game, "Error\nMap is not rectangular", map);
 	ft_horizontal(game);
 	ft_vertical(game);
+	return ;
 }
 
 static void	ft_horizontal(t_game *game)
@@ -43,6 +44,7 @@ static void	ft_horizontal(t_game *game)
 			ft_error_handler(game, "Error\nMap misconfiguration", map);
 		w++;
 	}
+	return ;
 }
 
 static void	ft_vertical(t_game *game)
@@ -65,4 +67,5 @@ static void	ft_vertical(t_game *game)
 			ft_error_handler(game, "Error\nMap misconfiguration", map);
 		h++;
 	}
+	return ;
 }

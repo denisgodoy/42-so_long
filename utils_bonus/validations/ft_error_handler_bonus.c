@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error_handler_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 03:18:49 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 22:18:17 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:18:23 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ void	ft_error_handler(t_game *game, char *str, int clear)
 	{
 		printf("Error\n%s\n", str);
 		ft_free_game(game);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	else if (clear == mlx)
 	{
 		printf("Error\n%s\n", str);
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	else if (clear == map)
 	{
@@ -33,8 +33,8 @@ void	ft_error_handler(t_game *game, char *str, int clear)
 		ft_free_map(game);
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	printf("Error\n%s\n", str);
-	exit(1);
+	exit(EXIT_FAILURE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_validate_map_str_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:04:07 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 17:54:22 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:33:12 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ void	ft_validate_map_str(t_game *game, char *map)
 		}
 		i++;
 	}
+	return ;
 }

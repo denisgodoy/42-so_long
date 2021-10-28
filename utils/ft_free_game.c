@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:55:04 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 20:41:14 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:34:17 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_free_game(t_game *game)
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
+	return ;
 }
 
 static void	ft_free_map_utils_img(t_game *game)
@@ -39,4 +40,5 @@ static void	ft_free_map_utils_img(t_game *game)
 	mlx_destroy_image(game->mlx, game->exit_o.ptr);
 	mlx_destroy_image(game->mlx, game->key.ptr);
 	mlx_destroy_image(game->mlx, game->floor.ptr);
+	return ;
 }

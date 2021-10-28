@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_args_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:43:21 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 17:06:40 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:30:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_check_args(int argc, char **argv, t_game *game)
 		else
 			ft_error_handler(game, "Invalid number of arguments", quit);
 	}
+	return ;
 }
 
 static int	ft_check_ext(t_game *game, char *file)

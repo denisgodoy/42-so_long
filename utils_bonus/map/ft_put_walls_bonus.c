@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_walls_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:34:10 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/20 15:59:15 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:28:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_put_walls(t_game *game, int h, int w)
 	if (!ft_check_lines(game, h, w) && !ft_check_corners(game, h, w))
 		mlx_put_image_to_window(game->mlx, game->win, game->wall_m.ptr,
 			(IMG * w), (IMG * h));
+	return ;
 }
 
 static int	ft_check_corners(t_game *game, int h, int w)

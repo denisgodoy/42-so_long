@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:55:04 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 20:30:34 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:33:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_free_game(t_game *game)
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
+	return ;
 }
 
 static void	ft_free_player_img(t_game *game)
@@ -41,6 +42,7 @@ static void	ft_free_player_img(t_game *game)
 	mlx_destroy_image(game->mlx, game->player.pa.ptr);
 	mlx_destroy_image(game->mlx, game->player.pb.ptr);
 	mlx_destroy_image(game->mlx, game->player.pc.ptr);
+	return ;
 }
 
 static void	ft_free_map_utils_img(t_game *game)
@@ -58,6 +60,7 @@ static void	ft_free_map_utils_img(t_game *game)
 	mlx_destroy_image(game->mlx, game->exit_o.ptr);
 	mlx_destroy_image(game->mlx, game->key.ptr);
 	mlx_destroy_image(game->mlx, game->floor.ptr);
+	return ;
 }
 
 static void	ft_free_enemy_img(t_game *game)
@@ -67,4 +70,5 @@ static void	ft_free_enemy_img(t_game *game)
 	mlx_destroy_image(game->mlx, game->enemy.p3.ptr);
 	mlx_destroy_image(game->mlx, game->enemy.p4.ptr);
 	mlx_destroy_image(game->mlx, game->enemy.p5.ptr);
+	return ;
 }

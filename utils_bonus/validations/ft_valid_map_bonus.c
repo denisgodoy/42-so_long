@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_valid_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/23 00:06:10 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 19:32:12 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_valid_map(t_game *game)
 	ft_map_size(game);
 	ft_map_char(game);
 	ft_map_format(game);
+	return ;
 }
 
 static void	ft_map_char(t_game *game)
@@ -47,6 +48,7 @@ static void	ft_map_char(t_game *game)
 	if (!(game->plan.c > 0 && game->plan.p == 1 && game->plan.e == 1
 			&& game->plan.s > 0))
 		ft_error_handler(game, "Invalid map", map);
+	return ;
 }
 
 static void	ft_map_size(t_game *game)
@@ -69,6 +71,7 @@ static void	ft_map_size(t_game *game)
 	game->plan.width = line_len - 1;
 	game->plan.height = h - 1;
 	ft_max_resolution(game);
+	return ;
 }
 
 static void	ft_check_chars(t_game *game, int h, int w)
@@ -85,4 +88,5 @@ static void	ft_check_chars(t_game *game, int h, int w)
 		game->plan.t++;
 	else if (!(game->plan.map[h][w] == '1'))
 		ft_error_handler(game, "Map misconfiguration", map);
+	return ;
 }
