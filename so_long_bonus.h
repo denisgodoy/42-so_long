@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/26 21:40:55 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 01:02:18 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@
 # define LEFT 			97
 # define RIGHT			100
 # define ESC			65307
-# define IMG			40
+# define IMG			36
 # define ERROR			"\033[1;31m"
 # define SUCCESS		"\033[1;32m"
 # define WARNING		"\033[1;33m"
 # define RESET   		"\033[0m"
 # define X_DESTROY		17
 # define X_EXPOSE		12
-# define POS_X			84
-# define POS_X_STR		28
-# define POS_Y			22
+# define POS_X			80
+# define POS_X_STR		24
+# define POS_Y			19
 # define STR_COLOR		0x934d1d
 # define FONT			"-misc-fixed-bold-r-normal--13-*-*-*-c-80-iso8859-1"
 
