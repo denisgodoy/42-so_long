@@ -6,11 +6,11 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:41:01 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/22 20:03:18 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:07:27 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static int	ft_animate_player_left(t_game *game);
 static int	ft_animate_player_right(t_game *game);

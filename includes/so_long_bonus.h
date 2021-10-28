@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/22 10:12:51 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:06:59 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "minilibx-linux/mlx.h"
-# include "42-libft/libft.h"
-# include "42-gnl/get_next_line.h"
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
+# include "../minilibx-linux/mlx.h"
+# include "../42-libft/libft.h"
+# include "../42-gnl/get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
+# include <time.h>
 
 # define UP 			119
 # define DOWN 			115
 # define LEFT 			97
 # define RIGHT			100
 # define ESC			65307
-# define IMG			40
+# define IMG			36
+# define ERROR			"\033[1;31m"
 # define SUCCESS		"\033[1;32m"
+# define WARNING		"\033[1;33m"
 # define RESET   		"\033[0m"
 # define X_DESTROY		17
 # define X_EXPOSE		12
+# define POS_X			80
+# define POS_X_STR		24
+# define POS_Y			19
+# define STR_COLOR		0x934d1d
+# define FONT			"-misc-fixed-bold-r-normal--13-*-*-*-c-80-iso8859-1"
 
 enum e_direction
 {
@@ -61,21 +69,45 @@ typedef struct s_map
 	int		p;
 	int		s;
 	int		e;
+	int		t;
 }	t_map;
 
 typedef struct s_player
 {
-	t_img	p;
+	t_img	p1;
+	t_img	p2;
+	t_img	p3;
+	t_img	p4;
+	t_img	p5;
+	t_img	p6;
+	t_img	p7;
+	t_img	p8;
+	t_img	p9;
+	t_img	pa;
+	t_img	pb;
+	t_img	pc;
 	int		x;
 	int		y;
 	int		moves;
 }	t_player;
+
+typedef struct s_enemy
+{
+	t_img	p1;
+	t_img	p2;
+	t_img	p3;
+	t_img	p4;
+	t_img	p5;
+	int		x;
+	int		y;
+}	t_enemy;
 
 typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
 	char		*filename;
+	int			key_press;
 	t_map		plan;
 	t_player	player;
 	t_img		wall_l;
@@ -91,11 +123,16 @@ typedef struct s_game
 	t_img		exit_c;
 	t_img		exit_o;
 	t_img		key;
+	t_enemy		enemy;
 }	t_game;
 
+int		ft_animate_enemy(t_game *game);
+int		ft_animate_player(t_game *game);
+int		ft_animations(t_game *game);
 void	ft_check_args(int argc, char **argv, t_game *game);
 int		ft_close_window(t_game *game);
 void	ft_collect_item(t_game *game);
+void	ft_delay(int ms);
 void	ft_error_handler(t_game *game, char *str, int clear);
 void	ft_exit_map(t_game *game);
 void	ft_free_game(t_game *game);
@@ -111,5 +148,6 @@ void	ft_put_walls(t_game *game, int h, int w);
 char	*ft_read_map(t_game *game);
 void	ft_validate_map_str(t_game *game, char *map);
 void	ft_valid_map(t_game *game);
+int		ft_move_enemy(t_game *game);
 
 #endif

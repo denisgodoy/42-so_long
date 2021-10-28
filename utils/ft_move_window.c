@@ -6,11 +6,11 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 09:47:55 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/22 12:22:27 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:12:30 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include	"so_long.h"
 
 int	ft_move_window(t_game *game)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_args_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:43:21 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:30:08 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:10:17 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static int	ft_check_ext(t_game *game, char *file);
 

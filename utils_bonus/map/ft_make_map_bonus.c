@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_make_map_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:28:35 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:07:12 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static void	ft_parse_line(t_game *game, int h, int w);
 static void	ft_player_position(t_game *game, int h, int w);

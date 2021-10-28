@@ -6,11 +6,11 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:02:22 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/26 17:09:20 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:07:58 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static void	ft_move_direction(t_game *game, int direction);
 static void	ft_move_up_down(t_game *game, int move, int h, int w);

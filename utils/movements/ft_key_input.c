@@ -6,11 +6,11 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 22:23:48 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:11:24 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long.h"
+#include	"so_long.h"
 
 static void	ft_print_moves(t_game *game);
 

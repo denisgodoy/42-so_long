@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_validate_map_str.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:04:07 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:33:03 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:12:15 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long.h"
+#include	"so_long.h"
 
 void	ft_validate_map_str(t_game *game, char *map)
 {

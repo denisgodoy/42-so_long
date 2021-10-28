@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_max_resolution.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 03:46:00 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:27:27 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:12:03 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long.h"
+#include	"so_long.h"
 
 void	ft_max_resolution(t_game *game)
 {

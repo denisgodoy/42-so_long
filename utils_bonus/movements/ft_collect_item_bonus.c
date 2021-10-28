@@ -6,11 +6,11 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 16:36:29 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/20 15:59:04 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:07:51 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 void	ft_collect_item(t_game *game)
 {

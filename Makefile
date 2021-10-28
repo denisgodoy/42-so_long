@@ -2,7 +2,7 @@ NAME := so_long
 
 CC := clang
 
-CFLAGS := -Wall -Wextra -Werror -g
+CFLAGS := -Wall -Wextra -Werror -I includes/
 
 SRC := main.c \
 		$(addprefix utils/, \

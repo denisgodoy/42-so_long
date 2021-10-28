@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_valid_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:32:12 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:10:37 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static void	ft_map_char(t_game *game);
 static void	ft_map_size(t_game *game);

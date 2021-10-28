@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_game_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:55:04 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:33:53 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:08:30 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static void	ft_free_player_img(t_game *game);
 static void	ft_free_map_utils_img(t_game *game);

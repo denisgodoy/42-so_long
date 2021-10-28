@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 22:56:06 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:26:14 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:11:03 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long.h"
+#include	"so_long.h"
 
 void	ft_exit_map(t_game *game)
 {

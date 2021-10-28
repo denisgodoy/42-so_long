@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_walls.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:34:10 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:29:15 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:11:12 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long.h"
+#include	"so_long.h"
 
 static int	ft_check_corners(t_game *game, int h, int w);
 static int	ft_check_lines(t_game *game, int h, int w);

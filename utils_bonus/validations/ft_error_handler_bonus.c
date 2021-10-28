@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error_handler_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 03:18:49 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:18:23 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:10:26 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 void	ft_error_handler(t_game *game, char *str, int clear)
 {

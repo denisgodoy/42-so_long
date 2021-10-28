@@ -6,11 +6,11 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 23:12:15 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/20 22:10:26 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:08:08 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static int	ft_mid_walls(t_game *game, int move);
 static int	ft_check_exit(t_game *game, int move);

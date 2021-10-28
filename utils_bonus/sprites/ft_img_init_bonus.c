@@ -6,11 +6,11 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:41:33 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/21 20:30:01 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:08:13 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static void	ft_player_img(t_game *game);
 static void	ft_enemy_img(t_game *game);

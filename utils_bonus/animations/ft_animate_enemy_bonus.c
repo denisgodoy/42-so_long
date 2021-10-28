@@ -6,11 +6,11 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 00:27:15 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/23 13:32:52 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/28 17:07:23 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../../so_long_bonus.h"
+#include	"so_long_bonus.h"
 
 static int	ft_enemy_line(t_game *game);
 static int	ft_enemy_column(t_game *game);

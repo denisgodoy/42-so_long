@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:55:04 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 19:34:17 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/28 17:12:23 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include	"so_long.h"
 
 static void	ft_free_map_utils_img(t_game *game);
 
