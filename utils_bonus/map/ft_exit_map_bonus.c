@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 22:56:06 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:07:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/29 18:31:09 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_exit_map(t_game *game)
 		exit(EXIT_SUCCESS);
 	}
 	else if (game->plan.map[(game->player.y / IMG)][(game->player.x / IMG)]
-		== 'T')
+		== 'T' || game->plan.map[(game->player.y / IMG)][(game->player.x / IMG)]
+		== 't')
 	{
 		printf(ERROR"Game Over! You Died!\n"RESET);
 		ft_free_game(game);

@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:10:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/29 18:44:50 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	ft_check_chars(t_game *game, int h, int w)
 		game->plan.e++;
 	else if (game->plan.map[h][w] == '0')
 		game->plan.s++;
-	else if (game->plan.map[h][w] == 'T')
+	else if (game->plan.map[h][w] == 'T' || game->plan.map[h][w] == 't')
 		game->plan.t++;
 	else if (!(game->plan.map[h][w] == '1'))
 		ft_error_handler(game, "Map misconfiguration", map);

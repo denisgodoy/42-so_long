@@ -6,36 +6,29 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:02:22 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:07:58 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/29 19:45:19 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"so_long_bonus.h"
 
-static void	ft_move_direction(t_game *game, int direction);
-static void	ft_move_up_down(t_game *game, int move, int h, int w);
-static void	ft_move_left_right(t_game *game, int move, int h, int w);
+static void	ft_check_position(t_game *game);
+static void	ft_move_left_right(t_game *game, int h, int w);
 
 int	ft_move_enemy(t_game *game)
 {
 	static int	i;
 
 	i++;
-	if (i == 3)
-		ft_move_direction(game, up);
-	else if (i == 6)
-		ft_move_direction(game, down);
-	else if (i == 9)
-		ft_move_direction(game, left);
-	else if (i == 12)
+	if (i == 30)
 	{
-		ft_move_direction(game, right);
+		ft_check_position(game);
 		i = 0;
 	}
 	return (0);
 }
 
-static void	ft_move_direction(t_game *game, int direction)
+static void	ft_check_position(t_game *game)
 {
 	static int	h;
 	static int	w;
@@ -48,12 +41,10 @@ static void	ft_move_direction(t_game *game, int direction)
 			w = 0;
 		while (game->plan.map[h][w])
 		{
-			if (game->plan.map[h][w] == 'T')
+			if (game->plan.map[h][w] == 'T' || game->plan.map[h][w] == 't')
 			{
-				ft_move_up_down(game, direction, h, w);
-				ft_move_left_right(game, direction, h, w);
+				ft_move_left_right(game, h, w);
 				w++;
-				return ;
 			}
 			w++;
 		}
@@ -62,42 +53,30 @@ static void	ft_move_direction(t_game *game, int direction)
 	return ;
 }
 
-static void	ft_move_up_down(t_game *game, int move, int h, int w)
+static void	ft_move_left_right(t_game *game, int h, int w)
 {
-	if (move == up && !(ft_strchr("1TC", game->plan.map[h - 1][w])))
+	if (game->plan.map[h][w] == 't' && game->plan.map[h][w - 1] == '0')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
 			(IMG * w), (IMG * h));
 		game->plan.map[h][w] = '0';
-		game->plan.map[h - 1][w] = 'T';
+		game->plan.map[h][w - 1] = 't';
+		ft_exit_map(game);
 	}
-	else if (move == down && !(ft_strchr("1TC", game->plan.map[h + 1][w])))
+	else if (game->plan.map[h][w] == 't' && game->plan.map[h][w - 1] != '0')
 	{
-		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
-			(IMG * w), (IMG * h));
-		game->plan.map[h][w] = '0';
-		game->plan.map[h + 1][w] = 'T';
+		game->plan.map[h][w] = 'T';
+		return ;
 	}
-	ft_exit_map(game);
-	return ;
-}
-
-static void	ft_move_left_right(t_game *game, int move, int h, int w)
-{
-	if (move == left && !(ft_strchr("1TC", game->plan.map[h][w - 1])))
-	{
-		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
-			(IMG * w), (IMG * h));
-		game->plan.map[h][w] = '0';
-		game->plan.map[h][w - 1] = 'T';
-	}
-	else if (move == right && !(ft_strchr("1TC", game->plan.map[h][w + 1])))
+	else if (game->plan.map[h][w] == 'T' && game->plan.map[h][w + 1] == '0')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
 			(IMG * w), (IMG * h));
 		game->plan.map[h][w] = '0';
 		game->plan.map[h][w + 1] = 'T';
+		ft_exit_map(game);
 	}
-	ft_exit_map(game);
+	else if (game->plan.map[h][w] == 'T' && game->plan.map[h][w + 1] != '0')
+		game->plan.map[h][w] = 't';
 	return ;
 }

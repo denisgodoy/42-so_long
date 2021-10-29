@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 00:27:15 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:07:23 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/29 18:36:26 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static int	ft_enemy_line(t_game *game)
 			w = 0;
 		while (game->plan.map[h][w])
 		{
-			if (game->plan.map[h][w] == 'T')
+			if (game->plan.map[h][w] == 'T' || game->plan.map[h][w] == 't')
 			{
 				w++;
 				return (h);
@@ -83,7 +83,7 @@ static int	ft_enemy_column(t_game *game)
 			w = 0;
 		while (game->plan.map[h][w])
 		{
-			if (game->plan.map[h][w] == 'T')
+			if (game->plan.map[h][w] == 'T' || game->plan.map[h][w] == 't')
 			{
 				w++;
 				return (w - 1);

@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 22:35:56 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:07:12 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/29 17:46:21 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_parse_line(t_game *game, int h, int w)
 			(IMG * w), (IMG * h));
 	else if (game->plan.map[h][w] == 'E')
 		ft_check_collects(game, h, w);
-	else if (game->plan.map[h][w] == 'T')
+	else if (game->plan.map[h][w] == 'T' || game->plan.map[h][w] == 't')
 		mlx_put_image_to_window(game->mlx, game->win, game->enemy.p1.ptr,
 			(IMG * w), (IMG * h));
 	else
