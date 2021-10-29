@@ -30,6 +30,7 @@ The game must follow some strict rules:
 - The player can leave the map when all collectibles have been collected or;
 - Press the escape `ESC` key or;
 - Close the window;
+- A movements counter must be displayed on terminal.
 
 ## Mandatory part
 
@@ -39,9 +40,11 @@ make all
 ./so_long maps/<map-name>.ber
 ```
 
+![mandatory_so_long](https://user-images.githubusercontent.com/56933400/139359201-53e072fa-266f-49e6-945a-8dd58cbc3b78.gif)
+
 ## Bonus part
 
-The game gets quite complex, with an enemy patrol that causes the player to lose, and some sprite animation. At least 1 `T` character must be added to the map, representing the enemy.
+The game gets quite complex, with an enemy patrol that causes the player to lose, and some sprite animation. At least 1 `T` character must be added to the map, representing the enemy. The movements counter must be displayed directly on the window.
 ```shell
 make bonus
 ./so_long maps/<map-name>_bonus.ber
