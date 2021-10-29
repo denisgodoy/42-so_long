@@ -51,3 +51,5 @@ The game objective remains the same, but it gets quite complex with an enemy pat
 make bonus
 ./so_long maps/<map-name>_bonus.ber
 ```
+
+![bonus_so_long](https://user-images.githubusercontent.com/56933400/139512160-ee03ca32-098b-4001-b553-64171fd2d058.gif)
