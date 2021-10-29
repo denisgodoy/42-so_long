@@ -44,7 +44,9 @@ make all
 
 ## Bonus part
 
-The game gets quite complex, with an enemy patrol that causes the player to lose, and some sprite animation. At least 1 `T` character must be added to the map, representing the enemy. The movements counter must be displayed directly on the window.
+The game objective remains the same, but it gets quite complex with an enemy patrol that causes the player to lose, and some sprite animation added.
+- At least 1 `T` character must be added to the map, representing the enemy;
+- The movements counter must be displayed directly on the window.
 ```shell
 make bonus
 ./so_long maps/<map-name>_bonus.ber
