@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 13:02:22 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/29 19:45:19 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/10/29 23:43:17 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,7 @@ static void	ft_move_left_right(t_game *game, int h, int w)
 		ft_exit_map(game);
 	}
 	else if (game->plan.map[h][w] == 't' && game->plan.map[h][w - 1] != '0')
-	{
 		game->plan.map[h][w] = 'T';
-		return ;
-	}
 	else if (game->plan.map[h][w] == 'T' && game->plan.map[h][w + 1] == '0')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->floor.ptr,
