@@ -8,6 +8,8 @@ A small 2D game using MiniLibX, including textures, sprites and some basic gamep
 - [Mandatory part](https://github.com/denisgodoy/42-so_long#mandatory-part)
 - [Bonus part](https://github.com/denisgodoy/42-so_long#bonus-part)
 
+![so_long](https://user-images.githubusercontent.com/56933400/139519574-ba2fe313-af45-41f8-a6cf-06755e118ff7.png)
+
 Clone this repository to play the game. Control keys are WASD.
 ```shell
 git clone --recurse-submodules https://github.com/denisgodoy/42-so_long.git so_long
