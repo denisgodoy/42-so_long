@@ -2,7 +2,7 @@ NAME := so_long
 
 CC := clang
 
-CFLAGS := -Wall -Wextra -Werror -I includes/
+CFLAGS := -Wall -Wextra -Werror -I includes/ -g
 
 SRC := main.c \
 		$(addprefix utils/, \
@@ -88,15 +88,10 @@ clean:
 	$(MAKE) -C ./42-libft clean
 	rm -rf $(OBJ)
 	rm -rf $(BONUS_OBJ)
-	rm -rf $(NAME)
 
 fclean: clean
 	$(MAKE) -C ./minilibx-linux clean
 	$(MAKE) -C ./42-libft fclean
+	rm -rf $(NAME)
 
 re: fclean all
-
-commit:
-	git add .
-	git commit -m "update so_long"
-	git push origin main
