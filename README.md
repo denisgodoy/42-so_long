@@ -18,7 +18,8 @@ cd so_long
 
 ## Evaluation
 
-[PROJECT IN PROGRESS]
+![grade](https://user-images.githubusercontent.com/56933400/139965040-7faa31f1-abc0-4a4d-9905-4cf0806cddda.png)
+![badge](https://game.42sp.org.br/static/assets/achievements/so_longm.png)
 
 ## Game rules
 
