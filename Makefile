@@ -1,6 +1,6 @@
 NAME := so_long
 
-CC := clang
+CC := gcc
 
 CFLAGS := -Wall -Wextra -Werror -I includes/ -g
 
