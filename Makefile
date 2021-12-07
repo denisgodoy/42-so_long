@@ -68,7 +68,7 @@ OBJ := $(SRC:%.c=%.o)
 
 BONUS_OBJ := $(BONUS_SRC:%.c=%.o)
 
-LIB := -L ./minilibx_mac -lmlx -L ./42-libft -lft -framework OpenGL -framework AppKit
+LIB := -L ./minilibx-mac -lmlx -L ./42-libft -lft -framework OpenGL -framework AppKit
 
 all: $(NAME)
 

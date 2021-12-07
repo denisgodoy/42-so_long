@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/06 21:34:25 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:42:26 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <fcntl.h>
 # include <time.h>
 
-# define UP 			119
-# define DOWN 			115
-# define LEFT 			97
-# define RIGHT			100
-# define ESC			65307
+# define UP 			13
+# define DOWN 			1
+# define LEFT 			0
+# define RIGHT			2
+# define ESC			53
 # define IMG			36
 # define ERROR			"\033[1;31m"
 # define SUCCESS		"\033[1;32m"
@@ -35,7 +35,6 @@
 # define POS_X_STR		24
 # define POS_Y			19
 # define STR_COLOR		0x934d1d
-# define FONT			"-misc-fixed-bold-r-normal--13-*-*-*-c-80-iso8859-1"
 
 enum e_direction
 {

@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/06 21:11:50 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:38:11 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void	ft_print_moves(t_game *game);
 int	ft_key_input(int key, t_game *game)
 {
 	game->player.moves = 0;
-	if (key == LEFT || key == 0)
+	if (key == LEFT)
 		game->player.moves = ft_move_player(game, left);
-	else if (key == RIGHT || key == 2)
+	else if (key == RIGHT)
 		game->player.moves = ft_move_player(game, right);
-	else if (key == UP || key == 13)
+	else if (key == UP)
 		game->player.moves = ft_move_player(game, up);
-	else if (key == DOWN || key == 1)
+	else if (key == DOWN)
 		game->player.moves = ft_move_player(game, down);
-	else if (key == ESC || key == 53)
+	else if (key == ESC)
 		ft_error_handler(game, "\nYou quit the game", clean);
 	ft_print_moves(game);
 	ft_collect_item(game);

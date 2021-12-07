@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 00:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/12/06 21:22:17 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:40:40 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ static void	ft_put_image_to_window(t_game *game, int key);
 
 int	ft_key_input(int key, t_game *game)
 {
-	if (key == LEFT || key == 0)
+	if (key == LEFT)
 		game->player.moves = ft_move_player(game, left);
-	else if (key == RIGHT || key == 2)
+	else if (key == RIGHT)
 		game->player.moves = ft_move_player(game, right);
-	else if (key == UP || key == 13)
+	else if (key == UP)
 		game->player.moves = ft_move_player(game, up);
-	else if (key == DOWN || key == 1)
+	else if (key == DOWN)
 		game->player.moves = ft_move_player(game, down);
-	else if (key == ESC || key == 53)
+	else if (key == ESC)
 	{
 		game->key_press = key;
 		ft_exit_map(game);
@@ -39,25 +39,25 @@ int	ft_key_input(int key, t_game *game)
 
 static void	ft_put_image_to_window(t_game *game, int key)
 {
-	if (key == LEFT || key == 0)
+	if (key == LEFT)
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p5.ptr,
 			game->player.x, game->player.y);
 		game->key_press = key;
 	}
-	else if (key == UP || key == 13)
+	else if (key == UP)
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p8.ptr,
 			game->player.x, game->player.y);
 		game->key_press = key;
 	}
-	else if (key == DOWN || key == 1)
+	else if (key == DOWN)
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.pb.ptr,
 			game->player.x, game->player.y);
 		game->key_press = key;
 	}
-	else if (key == RIGHT || key == 2)
+	else if (key == RIGHT)
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.p2.ptr,
 			game->player.x, game->player.y);
