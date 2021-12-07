@@ -12,7 +12,7 @@ A small 2D game using MiniLibX, including textures, sprites and some basic gamep
 
 Clone this repository to play the game. Control keys are WASD.
 ```shell
-git clone --recurse-submodules https://github.com/denisgodoy/42-so_long.git so_long
+git clone --recurse-submodules -b mac_os https://github.com/denisgodoy/42-so_long.git so_long
 cd so_long
 ```
 
