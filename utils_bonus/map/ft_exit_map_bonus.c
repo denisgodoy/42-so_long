@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 22:56:06 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/29 18:31:09 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:26:13 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_exit_map(t_game *game)
 		ft_free_game(game);
 		exit(EXIT_SUCCESS);
 	}
-	else if (game->key_press == ESC)
+	else if (game->key_press == ESC || game->key_press == 53)
 	{
 		printf(WARNING"You quit the game...\n"RESET);
 		ft_free_game(game);

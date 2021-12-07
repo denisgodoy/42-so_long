@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:41:01 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:07:27 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:26:46 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	ft_animate_player(t_game *game)
 	static int	key;
 
 	key = game->key_press;
-	if (key == LEFT)
+	if (key == LEFT || key == 0)
 		ft_animate_player_left(game);
-	else if (key == UP)
+	else if (key == UP || key == 13)
 		ft_animate_player_up(game);
-	else if (key == DOWN)
+	else if (key == DOWN || key == 1)
 		ft_animate_player_down(game);
 	else
 		ft_animate_player_right(game);

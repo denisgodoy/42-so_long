@@ -6,13 +6,13 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:44:47 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:14:37 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:34:19 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "../minilibx-linux/mlx.h"
+# include "../minilibx-mac/mlx.h"
 # include "../42-libft/libft.h"
 # include "../42-gnl/get_next_line.h"
 # include <stdio.h>
@@ -104,7 +104,6 @@ void	ft_img_init(t_game *game);
 int		ft_key_input(int key, t_game *game);
 void	ft_make_map(t_game *game);
 void	ft_map_format(t_game *game);
-void	ft_max_resolution(t_game *game);
 int		ft_move_player(t_game *game, int move);
 int		ft_move_window(t_game *game);
 void	ft_put_walls(t_game *game, int h, int w);

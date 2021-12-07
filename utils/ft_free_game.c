@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 15:55:04 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:12:23 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:04:32 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_free_game(t_game *game)
 	ft_free_map_utils_img(game);
 	ft_free_map(game);
 	mlx_destroy_window(game->mlx, game->win);
-	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	return ;
 }

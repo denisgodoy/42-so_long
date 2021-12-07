@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/16 03:18:49 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/28 17:10:26 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:14:34 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ft_error_handler(t_game *game, char *str, int clear)
 	else if (clear == mlx)
 	{
 		printf("Error\n%s\n", str);
-		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 		exit(EXIT_FAILURE);
 	}
@@ -31,7 +30,6 @@ void	ft_error_handler(t_game *game, char *str, int clear)
 	{
 		printf("Error\n%s\n", str);
 		ft_free_map(game);
-		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 		exit(EXIT_FAILURE);
 	}

@@ -6,7 +6,7 @@
 /*   By: degabrie <degabrie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 15:43:39 by degabrie          #+#    #+#             */
-/*   Updated: 2021/10/29 18:44:50 by degabrie         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:15:24 by degabrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ static void	ft_map_size(t_game *game)
 	}
 	game->plan.width = line_len - 1;
 	game->plan.height = h - 1;
-	ft_max_resolution(game);
 	return ;
 }
 

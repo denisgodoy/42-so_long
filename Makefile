@@ -2,7 +2,7 @@ NAME := so_long
 
 CC := gcc
 
-CFLAGS := -Wall -Wextra -Werror -I includes/ -g
+CFLAGS := -Wall -Wextra -Werror -I includes/ -fsanitize=address
 
 SRC := main.c \
 		$(addprefix utils/, \
@@ -22,7 +22,6 @@ SRC := main.c \
 		ft_check_args.c \
 		ft_map_format.c \
 		ft_valid_map.c \
-		ft_max_resolution.c \
 		ft_validate_map_str.c \
 		ft_error_handler.c) \
 		$(addprefix utils/sprites/, \
@@ -50,7 +49,6 @@ BONUS_SRC := main_bonus.c \
 			ft_check_args_bonus.c \
 			ft_map_format_bonus.c \
 			ft_valid_map_bonus.c \
-			ft_max_resolution_bonus.c \
 			ft_validate_map_str_bonus.c \
 			ft_error_handler_bonus.c) \
 			$(addprefix utils_bonus/sprites/, \
@@ -70,17 +68,17 @@ OBJ := $(SRC:%.c=%.o)
 
 BONUS_OBJ := $(BONUS_SRC:%.c=%.o)
 
-LIB := -L ./minilibx-linux -lmlx -lXext -lX11 -L ./42-libft -lft
+LIB := -L ./minilibx_mac -lmlx -L ./42-libft -lft -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(MAKE) -C ./minilibx-linux
+	$(MAKE) -C ./minilibx-mac
 	$(MAKE) -C ./42-libft
 	$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME)
 
 bonus: $(BONUS_OBJ)
-	$(MAKE) -C ./minilibx-linux
+	$(MAKE) -C ./minilibx-mac
 	$(MAKE) -C ./42-libft
 	$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIB) -o $(NAME)
 
@@ -90,7 +88,7 @@ clean:
 	rm -rf $(BONUS_OBJ)
 
 fclean: clean
-	$(MAKE) -C ./minilibx-linux clean
+	$(MAKE) -C ./minilibx-mac clean
 	$(MAKE) -C ./42-libft fclean
 	rm -rf $(NAME)
 
